@@ -66,7 +66,8 @@ export function* parcelSaveSaga() {
     // update state
     yield call(parcelFetchRequestSaga);
 
-    // redirect
+    // back
+    window.history.back();
   }
 }
 
