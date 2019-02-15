@@ -5,10 +5,14 @@ import { AppPageContainer } from './modules/App/pages/app.page';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store } from './config/store';
+import { MuiPickersUtilsProvider } from 'material-ui-pickers';
+import MomentUtils from '@date-io/moment';
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppPageContainer />
+    <MuiPickersUtilsProvider utils={MomentUtils}>
+      <AppPageContainer />
+    </MuiPickersUtilsProvider>
   </Provider>,
   document.getElementById('root'),
 );

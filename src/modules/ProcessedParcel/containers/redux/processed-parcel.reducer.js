@@ -6,8 +6,9 @@ import {
 
 const initialSate = {
   processedParcel: {
-    name: '',
-    culture: '',
+    parcelId: 1,
+    tractorId: 1,
+    dateProcess: new Date(),
     area: 0,
   },
   errorMessage: '',

@@ -1,1 +1,2 @@
-export const getProcessedParcelFromState = state => state.parcelReducer;
+export const getProcessedParcelFromState = state =>
+  state.processedParcelReducer;

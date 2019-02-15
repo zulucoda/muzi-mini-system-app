@@ -7,10 +7,18 @@ import {
   onProcessedParcelErrorAction,
   processedParcelSaveAction,
 } from '../../containers/redux/processed-parcel.actions';
+import { parcelFetchRequestAction } from '../../../Parcel/containers/redux/parcel.actions';
+import { tractorFetchRequestAction } from '../../../Tractor/containers/redux/tractor.actions';
 
-export function mapStateToProps({ processedParcelReducer }) {
+export function mapStateToProps({
+  processedParcelReducer,
+  parcelReducer,
+  tractorReducer,
+}) {
   return {
     processedParcelReducer,
+    parcelReducer,
+    tractorReducer,
   };
 }
 
@@ -20,6 +28,8 @@ export function mapDispatchToProps(dispatch) {
       processedParcelOnChangeAction,
       onProcessedParcelErrorAction,
       processedParcelSaveAction,
+      parcelFetchRequestAction,
+      tractorFetchRequestAction,
     },
     dispatch,
   );

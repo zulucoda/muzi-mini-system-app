@@ -6,23 +6,55 @@ import {
   Button,
   Paper,
   Typography,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
 } from '@material-ui/core';
+import { DatePicker } from 'material-ui-pickers';
 import { styles } from './styles';
 
 class ProcessedParcelForm extends React.Component {
   constructor(props) {
     super(props);
     this._onChange = this._onChange.bind(this);
+    this._getMenuItemList = this._getMenuItemList.bind(this);
+    this._onDateChange = this._onDateChange.bind(this);
+  }
+
+  componentDidMount() {
+    // fetch data for form usage
+    this.props.parcelFetchRequestAction();
+    this.props.tractorFetchRequestAction();
   }
 
   _onChange(evt) {
-    const name = evt.target.id;
+    const name = evt.target.name;
     const value = evt.target.value;
     this.props.processedParcelOnChangeAction({ name, value });
   }
 
+  _onDateChange(date) {
+    const name = 'dateProcess';
+    const value = date;
+    this.props.processedParcelOnChangeAction({ name, value });
+  }
+
+  _getMenuItemList(list, prefix) {
+    return list.map((item, idx) => (
+      <MenuItem key={`${prefix}-${idx}`} value={item.id}>
+        {item.name}
+      </MenuItem>
+    ));
+  }
+
   render() {
-    const { classes, processedParcelReducer } = this.props;
+    const {
+      classes,
+      processedParcelReducer,
+      parcelReducer,
+      tractorReducer,
+    } = this.props;
     console.log(
       '{processedParcelReducer.name}:',
       processedParcelReducer.processedParcel.name,
@@ -39,24 +71,39 @@ class ProcessedParcelForm extends React.Component {
           </Typography>
         </Paper>
         <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            id="name"
-            label="name"
-            className={classes.textField}
-            value={processedParcelReducer.processedParcel.name}
-            onChange={this._onChange}
-            margin="normal"
-          />
-          <TextField
-            id="culture"
-            label="culture"
-            className={classes.textField}
-            value={processedParcelReducer.processedParcel.culture}
-            onChange={this._onChange}
-            margin="normal"
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="age-simple">Select a Tractor</InputLabel>
+            <Select
+              value={processedParcelReducer.processedParcel.tractorId}
+              onChange={this._onChange}
+              inputProps={{
+                name: 'tractorId',
+                id: 'tractorId',
+              }}
+            >
+              {this._getMenuItemList(tractorReducer.list, 'tractor')}
+            </Select>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="age-simple">Select a Parcel</InputLabel>
+            <Select
+              value={processedParcelReducer.processedParcel.parcelId}
+              onChange={this._onChange}
+              inputProps={{
+                name: 'parcelId',
+                id: 'parcelId',
+              }}
+            >
+              {this._getMenuItemList(parcelReducer.list, 'parcel')}
+            </Select>
+          </FormControl>
+          <DatePicker
+            value={processedParcelReducer.processedParcel.dateProcess}
+            onChange={this._onDateChange}
           />
           <TextField
             id="area"
+            name="area"
             label="area"
             className={classes.textField}
             value={processedParcelReducer.processedParcel.area}
