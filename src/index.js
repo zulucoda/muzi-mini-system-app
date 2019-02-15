@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { App } from './modules/App/components/Main/app.main.view';
+import { AppPageContainer } from './modules/App/pages/app.page';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store } from './config/store';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AppPageContainer />
   </Provider>,
   document.getElementById('root'),
 );

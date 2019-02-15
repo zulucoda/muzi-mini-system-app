@@ -3,6 +3,8 @@ import { getLoginFormState } from './login.selectors';
 import { loginService } from '../../../../shared/services/Login/login.service';
 import {
   loginFetchRequestActionType,
+  loginOnChangeAction,
+  loginSetAuthTokenAction,
   onLoginErrorAction,
 } from './login.actions';
 
@@ -16,8 +18,7 @@ export function* authoriseUserSaga(email, password) {
     );
 
     // set auth token in store
-    console.log('set auth token in state', loginResponse);
-    // yield put(LoginActions.setAuthToken(response.token));
+    yield put(loginSetAuthTokenAction(loginResponse.token));
 
     return true;
   } catch (e) {
@@ -30,8 +31,6 @@ export function* userLoginSaga() {
   // 1. get the username and password from state.
   const { login } = yield select(getLoginFormState);
 
-  console.log('got state:', login);
-
   // 2. authorise the user
   const isAuthorised = yield call(
     authoriseUserSaga,
@@ -41,7 +40,8 @@ export function* userLoginSaga() {
 
   if (isAuthorised) {
     //3. remove the username and password from store
-    //4. get and set user settings
+    yield put(loginOnChangeAction({ name: 'email', value: '' }));
+    yield put(loginOnChangeAction({ name: 'password', value: '' }));
   } else {
     // NOT Authorised - incorrect username or password
     yield put(

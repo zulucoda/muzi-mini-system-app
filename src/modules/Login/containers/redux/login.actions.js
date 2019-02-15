@@ -16,3 +16,7 @@ const loginFetchRequest = new CreateAction(
 );
 export const loginFetchRequestAction = loginFetchRequest.action;
 export const loginFetchRequestActionType = loginFetchRequest.actionType;
+
+const loginSetAuthToken = new CreateAction(reducerName, 'LOGIN_SET_AUTH_TOKEN');
+export const loginSetAuthTokenAction = loginSetAuthToken.action;
+export const loginSetAuthTokenActionType = loginSetAuthToken.actionType;

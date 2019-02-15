@@ -3,8 +3,9 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { LoginPageContainer } from '../../../Login/pages/login.page';
 import './app.main.css';
 
-export class App extends Component {
+export class AppView extends Component {
   render() {
+    const { loginReducer } = this.props;
     return (
       <BrowserRouter>
         <div>
@@ -16,7 +17,7 @@ export class App extends Component {
           <Route
             path="/"
             render={() =>
-              this.props.loggedIn ? (
+              loginReducer.token ? (
                 <Redirect to="/admin/dashboard" />
               ) : (
                 <Redirect to="/login" />

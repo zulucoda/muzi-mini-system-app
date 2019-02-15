@@ -1,6 +1,7 @@
 import {
   loginOnChangeActionType,
   onLoginErrorActionType,
+  loginSetAuthTokenActionType,
 } from './login.actions';
 
 const initialSate = {
@@ -9,6 +10,7 @@ const initialSate = {
     password: '',
   },
   errorMessage: '',
+  token: null,
 };
 
 export const loginReducer = (state = initialSate, action) => {
@@ -20,6 +22,11 @@ export const loginReducer = (state = initialSate, action) => {
       return {
         ...state,
         errorMessage: action.payload.message,
+      };
+    case loginSetAuthTokenActionType:
+      return {
+        ...state,
+        token: action.payload,
       };
     default:
       return state;

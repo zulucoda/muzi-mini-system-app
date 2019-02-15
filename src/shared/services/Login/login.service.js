@@ -5,6 +5,21 @@ class LoginService {
     return response.json();
   }
 
+  _checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+      return response;
+    } else {
+      const error = new Error(`HTTP Error ${response.statusText}`);
+      error.status = response.statusText;
+      error.response = response;
+      throw error;
+    }
+  }
+
+  _serverError(error) {
+    return Promise.reject(`${error}`);
+  }
+
   onLogin(email, password) {
     return fetch(`${API_URL}/auth`, {
       method: 'POST',
@@ -12,7 +27,10 @@ class LoginService {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then(this._parseJson);
+    })
+      .then(this._checkStatus)
+      .then(this._parseJson)
+      .catch(this._serverError);
   }
 }
 
