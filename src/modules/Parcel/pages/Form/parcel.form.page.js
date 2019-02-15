@@ -5,7 +5,7 @@ import { ParcelFormView } from '../../components/Form/parcel.form.view';
 import {
   parcelOnChangeAction,
   onParcelErrorAction,
-  parcelFetchRequestAction,
+  parcelSaveAction,
 } from '../../containers/redux/parcel.actions';
 
 export function mapStateToProps({ parcelReducer }) {
@@ -19,7 +19,7 @@ export function mapDispatchToProps(dispatch) {
     {
       parcelOnChangeAction,
       onParcelErrorAction,
-      parcelFetchRequestAction,
+      parcelSaveAction,
     },
     dispatch,
   );

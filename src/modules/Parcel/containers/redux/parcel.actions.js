@@ -23,3 +23,7 @@ const parcelFetchResponse = new CreateAction(
 );
 export const parcelFetchResponseAction = parcelFetchResponse.action;
 export const parcelFetchResponseActionType = parcelFetchResponse.actionType;
+
+const parcelSave = new CreateAction(reducerName, 'PARCEL_SAVE_REQUEST');
+export const parcelSaveAction = parcelSave.action;
+export const parcelSaveActionType = parcelSave.actionType;

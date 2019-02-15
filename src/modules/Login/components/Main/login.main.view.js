@@ -37,7 +37,7 @@ class Login extends React.Component {
             id="email"
             label="email"
             className={classes.textField}
-            value={loginReducer.email}
+            value={loginReducer.login.email}
             onChange={this._onChange}
             margin="normal"
           />
@@ -45,7 +45,7 @@ class Login extends React.Component {
             id="password"
             label="password"
             className={classes.textField}
-            value={loginReducer.password}
+            value={loginReducer.login.password}
             onChange={this._onChange}
             margin="normal"
             type="password"

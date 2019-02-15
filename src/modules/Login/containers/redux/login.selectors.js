@@ -1,1 +1,1 @@
-export const getLoginFormState = state => state.loginReducer;
+export const getLoginFromState = state => state.loginReducer;

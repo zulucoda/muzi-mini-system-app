@@ -1,5 +1,5 @@
 import { select, call, takeLatest, put } from 'redux-saga/effects';
-import { getLoginFormState } from './login.selectors';
+import { getLoginFromState } from './login.selectors';
 import { loginService } from '../../../../shared/services/Login/login.service';
 import {
   loginFetchRequestActionType,
@@ -29,7 +29,7 @@ export function* authoriseUserSaga(email, password) {
 
 export function* userLoginSaga() {
   // 1. get the username and password from state.
-  const { login } = yield select(getLoginFormState);
+  const { login } = yield select(getLoginFromState);
 
   // 2. authorise the user
   const isAuthorised = yield call(

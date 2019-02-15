@@ -23,6 +23,7 @@ class ParcelForm extends React.Component {
 
   render() {
     const { classes, parcelReducer } = this.props;
+    console.log('{parcelReducer.name}:', parcelReducer.parcel.name);
     return (
       <div>
         <h1>Parcel Form</h1>
@@ -37,7 +38,7 @@ class ParcelForm extends React.Component {
             id="name"
             label="name"
             className={classes.textField}
-            value={parcelReducer.name}
+            value={parcelReducer.parcel.name}
             onChange={this._onChange}
             margin="normal"
           />
@@ -45,16 +46,15 @@ class ParcelForm extends React.Component {
             id="culture"
             label="culture"
             className={classes.textField}
-            value={parcelReducer.culture}
+            value={parcelReducer.parcel.culture}
             onChange={this._onChange}
             margin="normal"
-            type="password"
           />
           <TextField
             id="area"
             label="area"
             className={classes.textField}
-            value={parcelReducer.area}
+            value={parcelReducer.parcel.area}
             onChange={this._onChange}
             margin="normal"
             type="number"
@@ -63,7 +63,7 @@ class ParcelForm extends React.Component {
             variant="contained"
             color="primary"
             className={classes.button}
-            onClick={() => this.props.parcelFetchRequestAction()}
+            onClick={() => this.props.parcelSaveAction()}
           >
             Save
           </Button>

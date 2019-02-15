@@ -1,1 +1,1 @@
-export const getLarcelFormState = state => state.parcelReducer;
+export const getParcelFromState = state => state.parcelReducer;
