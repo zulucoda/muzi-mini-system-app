@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import { ParcelListPageContainer } from '../../../Parcel/pages/List/parcel.list.page';
 import { ParcelFormPageContainer } from '../../../Parcel/pages/Form/parcel.form.page';
+import { TractorListPageContainer } from '../../../Tractor/pages/List/tractor.list.page';
+import { TractorFormPageContainer } from '../../../Tractor/pages/Form/tractor.form.page';
 
 export class AdminView extends React.Component {
   render() {
@@ -39,11 +41,11 @@ export class AdminView extends React.Component {
 
             <Route
               path="/admin/tractor/list"
-              component={() => <div>I am a fake Tractor list</div>}
+              component={TractorListPageContainer}
             />
             <Route
               path="/admin/tractor/add"
-              component={() => <div>I am a fake Tractor Add</div>}
+              component={TractorFormPageContainer}
             />
 
             <Route
