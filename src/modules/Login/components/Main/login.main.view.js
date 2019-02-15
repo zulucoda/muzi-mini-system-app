@@ -1,5 +1,12 @@
 import React from 'react';
-import { TextField, withStyles, Grid, Button } from '@material-ui/core';
+import {
+  TextField,
+  withStyles,
+  Grid,
+  Button,
+  Paper,
+  Typography,
+} from '@material-ui/core';
 import { styles } from './styles';
 
 class Login extends React.Component {
@@ -19,6 +26,12 @@ class Login extends React.Component {
     return (
       <div>
         <h1>Login Form</h1>
+        <Paper className={classes.paper} elevation={1}>
+          <Typography variant="h5" component="h3">
+            Error Message
+          </Typography>
+          <Typography component="p">{loginReducer.errorMessage}</Typography>
+        </Paper>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
             id="email"
@@ -41,6 +54,7 @@ class Login extends React.Component {
             variant="contained"
             color="primary"
             className={classes.button}
+            onClick={() => this.props.loginFetchRequestAction()}
           >
             Login
           </Button>

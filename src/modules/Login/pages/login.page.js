@@ -5,7 +5,8 @@ import { LoginView } from '../components/Main/login.main.view';
 import {
   loginOnChangeAction,
   onLoginErrorAction,
-} from '../containers/redux/login.reducer';
+  loginFetchRequestAction,
+} from '../containers/redux/login.actions';
 
 export function mapStateToProps({ loginReducer }) {
   return {
@@ -18,6 +19,7 @@ export function mapDispatchToProps(dispatch) {
     {
       loginOnChangeAction,
       onLoginErrorAction,
+      loginFetchRequestAction,
     },
     dispatch,
   );
