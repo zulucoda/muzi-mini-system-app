@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { LoginPageContainer } from '../../../Login/pages/login.page';
 import './app.main.css';
+import { AdminView } from '../../../Admin/components/Main/admin.main.view';
 
 export class AppView extends Component {
   render() {
@@ -10,10 +11,7 @@ export class AppView extends Component {
       <BrowserRouter>
         <div>
           <Route path="/login" component={LoginPageContainer} />
-          <Route
-            path="/admin"
-            component={() => <div>I am a fake Admin, please implement me.</div>}
-          />
+          <Route path="/admin" component={AdminView} />
           <Route
             path="/"
             render={() =>

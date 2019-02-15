@@ -10,7 +10,9 @@ const initialSate = {
     password: '',
   },
   errorMessage: '',
-  token: null,
+  //DEV ONLY REMOVE BEFORE SUBMTTING
+  token:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTUwMTQzODE1fQ.HYvJ0nQNyYpNh5dN6KqQRIB7Yg-HFvOqV2_BYOIiKbY',
 };
 
 export const loginReducer = (state = initialSate, action) => {

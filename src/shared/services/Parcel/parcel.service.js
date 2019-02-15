@@ -1,6 +1,6 @@
 import { API_URL } from '../url';
 
-class LoginService {
+class ParcelService {
   _parseJson(response) {
     return response.json();
   }
@@ -20,12 +20,12 @@ class LoginService {
     return Promise.reject(`${error}`);
   }
 
-  onLogin(email, password) {
-    return fetch(`${API_URL}/auth`, {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
+  fetchParcel(token) {
+    return fetch(`${API_URL}/parcel`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
     })
       .then(this._checkStatus)
@@ -34,4 +34,4 @@ class LoginService {
   }
 }
 
-export const loginService = new LoginService();
+export const parcelService = new ParcelService();
