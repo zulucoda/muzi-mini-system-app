@@ -35,7 +35,7 @@ class ProcessedParcelForm extends React.Component {
   }
 
   _onDateChange(date) {
-    const name = 'dateProcess';
+    const name = 'dateProcessed';
     const value = date;
     this.props.processedParcelOnChangeAction({ name, value });
   }
@@ -98,7 +98,7 @@ class ProcessedParcelForm extends React.Component {
             </Select>
           </FormControl>
           <DatePicker
-            value={processedParcelReducer.processedParcel.dateProcess}
+            value={processedParcelReducer.processedParcel.dateProcessed}
             onChange={this._onDateChange}
           />
           <TextField
