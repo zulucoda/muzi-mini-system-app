@@ -4,6 +4,8 @@ import { ParcelListPageContainer } from '../../../Parcel/pages/List/parcel.list.
 import { ParcelFormPageContainer } from '../../../Parcel/pages/Form/parcel.form.page';
 import { TractorListPageContainer } from '../../../Tractor/pages/List/tractor.list.page';
 import { TractorFormPageContainer } from '../../../Tractor/pages/Form/tractor.form.page';
+import { ProcessedParcelFormPageContainer } from '../../../ProcessedParcel/pages/Form/processed-parcel.form.page';
+import { ProcessedParcelListPageContainer } from '../../../ProcessedParcel/pages/List/processed-parcel.list.page';
 
 export class AdminView extends React.Component {
   render() {
@@ -50,11 +52,11 @@ export class AdminView extends React.Component {
 
             <Route
               path="/admin/processed-parcel/list"
-              component={() => <div>I am a fake Processed Parcel list</div>}
+              component={ProcessedParcelListPageContainer}
             />
             <Route
               path="/admin/processed-parcel/add"
-              component={() => <div>I am a fake Processed Parcel Add</div>}
+              component={ProcessedParcelFormPageContainer}
             />
             <Route
               path="/admin/processed-parcel/report"
