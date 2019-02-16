@@ -51,7 +51,7 @@ class TractorForm extends React.Component {
       <div className={classes.root}>
         <Grid container xs={12}>
           <Grid xs={12}>
-            <h1>Tractor Form</h1>
+            <h1>Add Tractor</h1>
           </Grid>
 
           {tractorReducer.errorMessage ? (
@@ -67,7 +67,8 @@ class TractorForm extends React.Component {
             </Grid>
           ) : null}
 
-          <Grid container xs={12}>
+          <Grid xs={12}>
+            <h3>Form</h3>
             <form className={classes.container} noValidate autoComplete="off">
               <Grid xs={12}>
                 <TextField

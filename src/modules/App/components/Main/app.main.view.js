@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { LoginPageContainer } from '../../../Login/pages/login.page';
+import { AdminPageContainer } from '../../../Admin/pages/admin.page';
 import './app.main.css';
-import { AdminView } from '../../../Admin/components/Main/admin.main.view';
 
 export class AppView extends Component {
   render() {
@@ -11,7 +11,7 @@ export class AppView extends Component {
       <BrowserRouter>
         <div>
           <Route path="/login" component={LoginPageContainer} />
-          <Route path="/admin" component={AdminView} />
+          <Route path="/admin" component={AdminPageContainer} />
           <Route
             path="/"
             render={() =>

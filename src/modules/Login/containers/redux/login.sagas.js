@@ -5,6 +5,7 @@ import {
   loginFetchRequestActionType,
   loginOnChangeAction,
   loginSetAuthTokenAction,
+  logoutActionType,
   onLoginErrorAction,
 } from './login.actions';
 
@@ -50,6 +51,12 @@ export function* userLoginSaga() {
   }
 }
 
+export function* userLogoutSaga() {
+  // remove token
+  yield put(loginSetAuthTokenAction(null));
+}
+
 export function* loginSaga() {
   yield takeLatest(loginFetchRequestActionType, userLoginSaga);
+  yield takeLatest(logoutActionType, userLogoutSaga);
 }

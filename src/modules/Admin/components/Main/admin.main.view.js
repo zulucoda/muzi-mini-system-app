@@ -1,10 +1,7 @@
 import React from 'react';
 import {
-  TextField,
   withStyles,
   Grid,
-  Button,
-  Paper,
   Typography,
   ListItem,
   List,
@@ -12,12 +9,15 @@ import {
   Toolbar,
   ListItemIcon,
   ListItemText,
+  Icon,
+  Button,
 } from '@material-ui/core';
 import {
   Work,
   LocalShipping,
   TrackChanges,
   TableChart,
+  Business,
 } from '@material-ui/icons';
 import { styles } from './styles';
 import { Link, Route } from 'react-router-dom';
@@ -29,6 +29,7 @@ import { ProcessedParcelFormPageContainer } from '../../../ProcessedParcel/pages
 import { ProcessedParcelListPageContainer } from '../../../ProcessedParcel/pages/List/processed-parcel.list.page';
 import { ProcessedParcelReportPageContainer } from '../../../ProcessedParcel/pages/Report/processed-parcel.report.page';
 import { withRoot } from '../../../../shared/components/RootTheme/root-theme';
+import { MfbView } from '../../../../shared/components/mfb/mfb.view';
 
 const ListItemLink = props => {
   return <ListItem button component={Link} {...props} />;
@@ -43,13 +44,29 @@ class Admin extends React.Component {
           <Grid container xs={12}>
             <AppBar position="static" color="primary">
               <Toolbar>
-                <Typography variant="h6" color="inherit">
-                  Muzi mini-system
+                <Icon
+                  className={classes.icon}
+                  color="inherit"
+                  aria-label="Menu"
+                >
+                  <Business />
+                </Icon>
+                <Typography
+                  variant="h6"
+                  color="inherit"
+                  className={classes.grow}
+                >
+                  Muzi mini-system app
                 </Typography>
+                <Button
+                  color="inherit"
+                  onClick={() => this.props.logoutAction()}
+                >
+                  Logout
+                </Button>
               </Toolbar>
             </AppBar>
           </Grid>
-
           <Grid container xs={12}>
             <Grid container xs={4} sm={2}>
               <List component="nav" className={classes.navList}>
@@ -120,6 +137,9 @@ class Admin extends React.Component {
                 component={ProcessedParcelReportPageContainer}
               />
             </Grid>
+          </Grid>
+          <Grid xs={12}>
+            <MfbView />
           </Grid>
         </Grid>
       </div>

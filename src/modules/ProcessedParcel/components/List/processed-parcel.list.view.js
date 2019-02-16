@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  TextField,
-  withStyles,
-  Grid,
-  Button,
-  Paper,
-  Typography,
-} from '@material-ui/core';
+import { withStyles, Grid } from '@material-ui/core';
 import { styles } from './styles';
-import { Link } from 'react-router-dom';
 import { ProcessedParcelTableView } from '../Table/processed-parcel.table.view';
+import { FabLink } from '../../../../shared/components/FabLink/fab-link.view';
 
 class ProcessedParcelList extends React.Component {
   componentDidMount() {
@@ -22,16 +15,11 @@ class ProcessedParcelList extends React.Component {
       <div className={classes.root}>
         <Grid container xs={12}>
           <Grid xs={12}>
-            <h1>ProcessedParcels</h1>
+            <h1>Processed Parcels</h1>
           </Grid>
           <Grid xs={12}>
-            <h3>
-              <Link to="/admin/processed-parcel/add">
-                <i className="fa fa-home" /> Add New ProcessedParcel
-              </Link>
-            </h3>
+            <FabLink to="/admin/processed-parcel/add" />
           </Grid>
-
           <ProcessedParcelTableView list={processedParcelReducer.list} />
         </Grid>
       </div>

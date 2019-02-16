@@ -129,19 +129,22 @@ class ProcessedParcelForm extends React.Component {
       <div className={classes.root}>
         <Grid container xs={12}>
           <Grid xs={12}>
-            <h1>Processed Parcel Form</h1>
+            <h1>Processed Parcel</h1>
           </Grid>
+          {processedParcelReducer.errorMessage ? (
+            <Grid xs={12}>
+              <Paper className={classes.paper} elevation={1}>
+                <Typography variant="h5" component="h3">
+                  Error Message
+                </Typography>
+                <Typography component="p">
+                  {processedParcelReducer.errorMessage}
+                </Typography>
+              </Paper>
+            </Grid>
+          ) : null}
           <Grid xs={12}>
-            <Paper className={classes.paper} elevation={1}>
-              <Typography variant="h5" component="h3">
-                Error Message
-              </Typography>
-              <Typography component="p">
-                {processedParcelReducer.errorMessage}
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid xs={12}>
+            <h3>Form</h3>
             <form className={classes.container} noValidate autoComplete="off">
               <Grid xs={12}>
                 <FormControl

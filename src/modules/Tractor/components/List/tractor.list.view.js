@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  TextField,
-  withStyles,
-  Grid,
-  Button,
-  Paper,
-  Typography,
-} from '@material-ui/core';
+import { withStyles, Grid } from '@material-ui/core';
+
 import { styles } from './styles';
-import { Link } from 'react-router-dom';
 import { TractorTableView } from '../Table/processed-parcel.table.view';
+import { FabLink } from '../../../../shared/components/FabLink/fab-link.view';
 
 class TractorList extends React.Component {
   componentDidMount() {
@@ -25,11 +19,7 @@ class TractorList extends React.Component {
             <h1>Tractors</h1>
           </Grid>
           <Grid xs={12}>
-            <h3>
-              <Link to="/admin/tractor/add">
-                <i className="fa fa-home" /> Add New Tractor
-              </Link>
-            </h3>
+            <FabLink to="/admin/tractor/add" />
           </Grid>
           <TractorTableView list={tractorReducer.list} />
         </Grid>

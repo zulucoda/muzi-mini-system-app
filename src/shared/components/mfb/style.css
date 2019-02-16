@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    font-size: 0.9em;
+    align-items: baseline;
+}
+
+.footer .mfb-project-01 img {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.nav {
+    list-style: none;
+}

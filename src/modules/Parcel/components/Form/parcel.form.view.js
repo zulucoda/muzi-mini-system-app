@@ -69,19 +69,24 @@ class ParcelForm extends React.Component {
     return (
       <div className={classes.root}>
         <Grid container xs={12} spacing={24}>
-          <h1>Parcel Form</h1>
           <Grid xs={12}>
-            <Paper className={classes.paper} elevation={1}>
-              <Typography variant="h5" component="h3">
-                Error Message
-              </Typography>
-              <Typography component="p">
-                {parcelReducer.errorMessage}
-              </Typography>
-            </Paper>
+            <h1>Add Parcel</h1>
           </Grid>
+          {parcelReducer.errorMessage ? (
+            <Grid xs={12}>
+              <Paper className={classes.paper} elevation={1}>
+                <Typography variant="h5" component="h3">
+                  Error Message
+                </Typography>
+                <Typography component="p">
+                  {parcelReducer.errorMessage}
+                </Typography>
+              </Paper>
+            </Grid>
+          ) : null}
 
           <Grid xs={12}>
+            <h3>Form</h3>
             <form className={classes.container} noValidate autoComplete="off">
               <Grid xs={12}>
                 <TextField

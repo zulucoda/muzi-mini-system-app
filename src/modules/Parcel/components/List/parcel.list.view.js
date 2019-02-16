@@ -1,8 +1,8 @@
 import React from 'react';
 import { withStyles, Grid } from '@material-ui/core';
 import { styles } from './styles';
-import { Link } from 'react-router-dom';
 import { ParcelTableView } from '../Table/processed-parcel.table.view';
+import { FabLink } from '../../../../shared/components/FabLink/fab-link.view';
 
 class ParcelList extends React.Component {
   componentDidMount() {
@@ -18,11 +18,7 @@ class ParcelList extends React.Component {
             <h1>Parcels</h1>
           </Grid>
           <Grid xs={12}>
-            <h3>
-              <Link to="/admin/parcel/add">
-                <i className="fa fa-home" /> Add New Parcel
-              </Link>
-            </h3>
+            <FabLink to="/admin/parcel/add" />
           </Grid>
           <ParcelTableView list={parcelReducer.list} />
         </Grid>

@@ -2,6 +2,11 @@ export const styles = theme => ({
   root: {
     flexGrow: 1,
   },
-  margin: {},
-  navList: {},
+  icon: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+  grow: {
+    flexGrow: 1,
+  },
 });

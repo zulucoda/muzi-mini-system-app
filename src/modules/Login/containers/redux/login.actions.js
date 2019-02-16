@@ -20,3 +20,7 @@ export const loginFetchRequestActionType = loginFetchRequest.actionType;
 const loginSetAuthToken = new CreateAction(reducerName, 'LOGIN_SET_AUTH_TOKEN');
 export const loginSetAuthTokenAction = loginSetAuthToken.action;
 export const loginSetAuthTokenActionType = loginSetAuthToken.actionType;
+
+const logout = new CreateAction(reducerName, 'LOGOUT');
+export const logoutAction = logout.action;
+export const logoutActionType = logout.actionType;
