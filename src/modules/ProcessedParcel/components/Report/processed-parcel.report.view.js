@@ -4,17 +4,10 @@ import {
   withStyles,
   Grid,
   Button,
-  Paper,
   MenuItem,
   FormControl,
   InputLabel,
   Select,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  TableFooter,
 } from '@material-ui/core';
 import { InlineDatePicker } from 'material-ui-pickers';
 import { styles } from './styles';
@@ -185,7 +178,14 @@ class ProcessedParcelReport extends React.Component {
             </form>
           </Grid>
 
-          <ProcessedParcelTableView list={processedParcelReducer.list} />
+          {processedParcelReducer.list.length === 0 ? (
+            <h3>
+              The current search criteria return no results. Click on "Clear
+              Search" button to reset.
+            </h3>
+          ) : (
+            <ProcessedParcelTableView list={processedParcelReducer.list} />
+          )}
         </Grid>
       </div>
     );

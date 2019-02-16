@@ -10,7 +10,15 @@ import {
   List,
   AppBar,
   Toolbar,
+  ListItemIcon,
+  ListItemText,
 } from '@material-ui/core';
+import {
+  Work,
+  LocalShipping,
+  TrackChanges,
+  TableChart,
+} from '@material-ui/icons';
 import { styles } from './styles';
 import { Link, Route } from 'react-router-dom';
 import { ParcelListPageContainer } from '../../../Parcel/pages/List/parcel.list.page';
@@ -22,6 +30,10 @@ import { ProcessedParcelListPageContainer } from '../../../ProcessedParcel/pages
 import { ProcessedParcelReportPageContainer } from '../../../ProcessedParcel/pages/Report/processed-parcel.report.page';
 import { withRoot } from '../../../../shared/components/RootTheme/root-theme';
 
+const ListItemLink = props => {
+  return <ListItem button component={Link} {...props} />;
+};
+
 class Admin extends React.Component {
   render() {
     const { classes } = this.props;
@@ -29,7 +41,7 @@ class Admin extends React.Component {
       <div className={classes.root}>
         <Grid container xs={12} spacing={24}>
           <Grid container xs={12}>
-            <AppBar position="static" color="default">
+            <AppBar position="static" color="primary">
               <Toolbar>
                 <Typography variant="h6" color="inherit">
                   Muzi mini-system
@@ -42,24 +54,36 @@ class Admin extends React.Component {
             <Grid container xs={4} sm={2}>
               <List component="nav" className={classes.navList}>
                 <ListItem>
-                  <Link to="/admin/parcel/list">
-                    <i className="fa fa-home" /> Parcel
-                  </Link>
+                  <ListItemLink to="/admin/parcel/list">
+                    <ListItemIcon>
+                      <Work />
+                    </ListItemIcon>
+                    <ListItemText inset primary="Parcels" />
+                  </ListItemLink>
                 </ListItem>
                 <ListItem>
-                  <Link to="/admin/tractor/list">
-                    <i className="fa fa-home" /> Tractor
-                  </Link>
+                  <ListItemLink to="/admin/tractor/list">
+                    <ListItemIcon>
+                      <LocalShipping />
+                    </ListItemIcon>
+                    <ListItemText inset primary="Tractors" />
+                  </ListItemLink>
                 </ListItem>
                 <ListItem>
-                  <Link to="/admin/processed-parcel/list">
-                    <i className="fa fa-home" /> Processed Parcel
-                  </Link>
+                  <ListItemLink to="/admin/processed-parcel/list">
+                    <ListItemIcon>
+                      <TrackChanges />
+                    </ListItemIcon>
+                    <ListItemText inset primary="Processed Parcel" />
+                  </ListItemLink>
                 </ListItem>
                 <ListItem>
-                  <Link to="/admin/processed-parcel/report">
-                    <i className="fa fa-home" /> Report Processed Parcel
-                  </Link>
+                  <ListItemLink to="/admin/processed-parcel/report">
+                    <ListItemIcon>
+                      <TableChart />
+                    </ListItemIcon>
+                    <ListItemText inset primary="Report PP" />
+                  </ListItemLink>
                 </ListItem>
               </List>
             </Grid>
