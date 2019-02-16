@@ -5,14 +5,20 @@ import {
   Grid,
   Button,
   Paper,
-  Typography,
   MenuItem,
   FormControl,
   InputLabel,
   Select,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  TableFooter,
 } from '@material-ui/core';
 import { InlineDatePicker } from 'material-ui-pickers';
 import { styles } from './styles';
+import { ProcessedParcelTableView } from '../Table/processed-parcel.table.view';
 
 class ProcessedParcelReport extends React.Component {
   constructor(props) {
@@ -178,14 +184,8 @@ class ProcessedParcelReport extends React.Component {
               </Grid>
             </form>
           </Grid>
-          <ul>
-            {processedParcelReducer.list.map((processedParcel, i) => (
-              <li key={i}>
-                {processedParcel.parcelName} {processedParcel.tractorName}{' '}
-                {processedParcel.culture} {processedParcel.area}
-              </li>
-            ))}
-          </ul>
+
+          <ProcessedParcelTableView list={processedParcelReducer.list} />
         </Grid>
       </div>
     );

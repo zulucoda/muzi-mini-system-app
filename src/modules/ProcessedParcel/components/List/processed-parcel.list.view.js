@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import { styles } from './styles';
 import { Link } from 'react-router-dom';
+import { ProcessedParcelTableView } from '../Table/processed-parcel.table.view';
 
 class ProcessedParcelList extends React.Component {
   componentDidMount() {
@@ -30,16 +31,8 @@ class ProcessedParcelList extends React.Component {
               </Link>
             </h3>
           </Grid>
-          <Grid xs={12}>
-            <ul>
-              {processedParcelReducer.list.map((processedParcel, i) => (
-                <li key={i}>
-                  {processedParcel.name} {processedParcel.culture}{' '}
-                  {processedParcel.area}
-                </li>
-              ))}
-            </ul>
-          </Grid>
+
+          <ProcessedParcelTableView list={processedParcelReducer.list} />
         </Grid>
       </div>
     );
