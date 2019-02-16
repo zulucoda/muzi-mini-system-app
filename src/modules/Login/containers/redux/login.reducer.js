@@ -2,6 +2,7 @@ import {
   loginOnChangeActionType,
   onLoginErrorActionType,
   loginSetAuthTokenActionType,
+  showOrHideLoadingActionType,
 } from './login.actions';
 
 const initialSate = {
@@ -10,9 +11,10 @@ const initialSate = {
     password: '',
   },
   errorMessage: '',
-  //DEV ONLY REMOVE BEFORE SUBMTTING
-  token:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTUwMTQzODE1fQ.HYvJ0nQNyYpNh5dN6KqQRIB7Yg-HFvOqV2_BYOIiKbY',
+  token: null,
+
+  // This should be in the App Reducer - for prototype I am leaving it in login Reducer
+  isLoading: false,
 };
 
 export const loginReducer = (state = initialSate, action) => {
@@ -29,6 +31,12 @@ export const loginReducer = (state = initialSate, action) => {
       return {
         ...state,
         token: action.payload,
+      };
+
+    case showOrHideLoadingActionType:
+      return {
+        ...state,
+        isLoading: action.payload,
       };
     default:
       return state;

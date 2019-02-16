@@ -12,7 +12,9 @@ export const styles = theme => ({
     overflowX: 'auto',
   },
   table: {
-    minWidth: 700,
+    [theme.breakpoints.up('md')]: {
+      minWidth: 700,
+    },
   },
   row: {
     '&:nth-of-type(odd)': {

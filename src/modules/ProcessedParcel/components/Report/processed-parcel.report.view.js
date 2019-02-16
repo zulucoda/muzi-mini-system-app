@@ -56,7 +56,7 @@ class ProcessedParcelReport extends React.Component {
             <h3>Report Filters</h3>
             <form className={classes.container} noValidate autoComplete="off">
               <Grid container xs={12} spacing={24}>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <FormControl className={classes.formControl} fullWidth={true}>
                     <InputLabel htmlFor="tractorId">
                       Select a Tractor
@@ -73,7 +73,7 @@ class ProcessedParcelReport extends React.Component {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <FormControl className={classes.formControl} fullWidth={true}>
                     <InputLabel htmlFor="parcelId">Select a Parcel</InputLabel>
                     <Select
@@ -91,7 +91,7 @@ class ProcessedParcelReport extends React.Component {
               </Grid>
 
               <Grid container xs={12} spacing={24}>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <InlineDatePicker
                     label="Select a from date"
                     name="dateProcessed"
@@ -105,7 +105,7 @@ class ProcessedParcelReport extends React.Component {
                     fullWidth={true}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <InlineDatePicker
                     label="Select a to date"
                     name="dateProcessedTo"
@@ -124,7 +124,7 @@ class ProcessedParcelReport extends React.Component {
               </Grid>
 
               <Grid container xs={12} spacing={24}>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     id="area"
                     name="area"
@@ -137,7 +137,7 @@ class ProcessedParcelReport extends React.Component {
                     fullWidth={true}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     id="culture"
                     name="culture"
@@ -152,7 +152,7 @@ class ProcessedParcelReport extends React.Component {
               </Grid>
 
               <Grid container xs={12} spacing={24}>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <Button
                     variant="contained"
                     color="primary"
@@ -162,7 +162,7 @@ class ProcessedParcelReport extends React.Component {
                     Search
                   </Button>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <Button
                     variant="contained"
                     color="secondary"

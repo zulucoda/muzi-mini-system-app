@@ -15,6 +15,7 @@ import { parcelFetchRequestAction } from '../../../Parcel/containers/redux/parce
 import { tractorFetchRequestAction } from '../../../Tractor/containers/redux/tractor.actions';
 import { convertToQueryString } from '../utils/processed-parcel.util';
 import moment from 'moment';
+import { showOrHideLoadingAction } from '../../../Login/containers/redux/login.actions';
 
 export function* fetchProcessedParcelApiSaga(token) {
   try {
@@ -34,12 +35,18 @@ export function* fetchProcessedParcelApiSaga(token) {
 }
 
 export function* processedParcelFetchRequestSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   // get token from state
   const { token } = yield select(getLoginFromState);
 
   const results = yield call(fetchProcessedParcelApiSaga, token);
 
   yield put(processedParcelFetchResponseAction(results));
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 function* saveProcessedParcelApiSaga(token, payload) {
@@ -64,6 +71,9 @@ function* saveProcessedParcelApiSaga(token, payload) {
 }
 
 export function* processedParcelSaveSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   // get token from state
   const { token } = yield select(getLoginFromState);
 
@@ -82,6 +92,9 @@ export function* processedParcelSaveSaga() {
     // back
     window.history.back();
   }
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 export function* clearFieldsSaga(processedParcel) {
@@ -91,6 +104,9 @@ export function* clearFieldsSaga(processedParcel) {
 }
 
 export function* processedParcelSearchResetSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   const { processedParcel } = yield select(getProcessedParcelFromState);
 
   yield call(clearFieldsSaga, processedParcel);
@@ -100,6 +116,9 @@ export function* processedParcelSearchResetSaga() {
   // fetch data for form usage
   yield put(parcelFetchRequestAction());
   yield put(tractorFetchRequestAction());
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 export function* searchProcessedParcelApiSaga(token, query) {
@@ -120,6 +139,9 @@ export function* searchProcessedParcelApiSaga(token, query) {
 }
 
 export function* processedParcelSearchSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   // get token from state
   const { token } = yield select(getLoginFromState);
 
@@ -139,6 +161,9 @@ export function* processedParcelSearchSaga() {
   const results = yield call(searchProcessedParcelApiSaga, token, query);
 
   yield put(processedParcelFetchResponseAction(results));
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 export function* processedParcelSagas() {

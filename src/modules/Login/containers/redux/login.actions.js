@@ -24,3 +24,8 @@ export const loginSetAuthTokenActionType = loginSetAuthToken.actionType;
 const logout = new CreateAction(reducerName, 'LOGOUT');
 export const logoutAction = logout.action;
 export const logoutActionType = logout.actionType;
+
+// This should be in the App Reducer - for prototype I am leaving it in login Reducer
+const showOrHideLoading = new CreateAction(reducerName, 'LOADING');
+export const showOrHideLoadingAction = showOrHideLoading.action;
+export const showOrHideLoadingActionType = showOrHideLoading.actionType;

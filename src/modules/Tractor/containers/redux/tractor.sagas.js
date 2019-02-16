@@ -8,6 +8,7 @@ import {
 } from './tractor.actions';
 import { getLoginFromState } from '../../../Login/containers/redux/login.selectors';
 import { getTractorFromState } from './tractor.selectors';
+import { showOrHideLoadingAction } from '../../../Login/containers/redux/login.actions';
 
 export function* fetchTractorApiSaga(token) {
   try {
@@ -27,6 +28,9 @@ export function* fetchTractorApiSaga(token) {
 }
 
 export function* tractorFetchRequestSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   // get token from state
   const { token } = yield select(getLoginFromState);
 
@@ -34,6 +38,9 @@ export function* tractorFetchRequestSaga() {
 
   // save results
   yield put(tractorFetchResponseAction(results));
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 function* saveTractorApiSaga(token, payload) {
@@ -54,6 +61,9 @@ function* saveTractorApiSaga(token, payload) {
 }
 
 export function* tractorSaveSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   // get token from state
   const { token } = yield select(getLoginFromState);
 
@@ -69,6 +79,9 @@ export function* tractorSaveSaga() {
     // back
     window.history.back();
   }
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 export function* tractorSagas() {

@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import { styles } from './styles';
 import { withRoot } from '../../../../shared/components/RootTheme/root-theme';
-import { MfbView } from '../../../../shared/components/mfb/mfb.view';
+import { MfbView } from '../../../../shared/components/Mfb/mfb.view';
 
 class Login extends React.Component {
   constructor(props) {

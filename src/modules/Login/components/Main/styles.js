@@ -9,9 +9,14 @@ export const styles = theme => ({
     backgroundImage: 'linear-gradient(0deg, #08AEEA 0%, #2AF598 100%)',
   },
   container: {
-    width: '650px',
+    maxWidth: '650px',
     display: 'flex',
     flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '300px',
+      margin: '10px',
+      padding: '10px',
+    },
   },
   paper: {
     backgroundColor: '#FFE53B',

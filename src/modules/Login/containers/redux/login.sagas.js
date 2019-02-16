@@ -7,6 +7,7 @@ import {
   loginSetAuthTokenAction,
   logoutActionType,
   onLoginErrorAction,
+  showOrHideLoadingAction,
 } from './login.actions';
 
 export function* authoriseUserSaga(email, password) {
@@ -29,6 +30,9 @@ export function* authoriseUserSaga(email, password) {
 }
 
 export function* userLoginSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   // 1. get the username and password from state.
   const { login } = yield select(getLoginFromState);
 
@@ -49,6 +53,9 @@ export function* userLoginSaga() {
       onLoginErrorAction({ message: 'incorrect username or password' }),
     );
   }
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 export function* userLogoutSaga() {

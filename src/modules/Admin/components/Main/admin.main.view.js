@@ -29,7 +29,7 @@ import { ProcessedParcelFormPageContainer } from '../../../ProcessedParcel/pages
 import { ProcessedParcelListPageContainer } from '../../../ProcessedParcel/pages/List/processed-parcel.list.page';
 import { ProcessedParcelReportPageContainer } from '../../../ProcessedParcel/pages/Report/processed-parcel.report.page';
 import { withRoot } from '../../../../shared/components/RootTheme/root-theme';
-import { MfbView } from '../../../../shared/components/mfb/mfb.view';
+import { MfbView } from '../../../../shared/components/Mfb/mfb.view';
 
 const ListItemLink = props => {
   return <ListItem button component={Link} {...props} />;
@@ -68,7 +68,7 @@ class Admin extends React.Component {
             </AppBar>
           </Grid>
           <Grid container xs={12}>
-            <Grid container xs={4} sm={2}>
+            <Grid container xs={12} sm={2}>
               <List component="nav" className={classes.navList}>
                 <ListItem>
                   <ListItemLink to="/admin/parcel/list">
@@ -105,7 +105,7 @@ class Admin extends React.Component {
               </List>
             </Grid>
 
-            <Grid container xs={8} sm={10} className="content">
+            <Grid container xs={12} sm={10} className="content">
               <Route
                 path="/admin/parcel/list"
                 component={ParcelListPageContainer}

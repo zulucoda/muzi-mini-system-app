@@ -8,6 +8,7 @@ import {
 } from './parcel.actions';
 import { getLoginFromState } from '../../../Login/containers/redux/login.selectors';
 import { getParcelFromState } from './parcel.selectors';
+import { showOrHideLoadingAction } from '../../../Login/containers/redux/login.actions';
 
 export function* fetchParcelApiSaga(token) {
   try {
@@ -27,6 +28,9 @@ export function* fetchParcelApiSaga(token) {
 }
 
 export function* parcelFetchRequestSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   // get token from state
   const { token } = yield select(getLoginFromState);
 
@@ -34,6 +38,9 @@ export function* parcelFetchRequestSaga() {
 
   // save results
   yield put(parcelFetchResponseAction(results));
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 function* saveParcelApiSaga(token, payload) {
@@ -54,6 +61,9 @@ function* saveParcelApiSaga(token, payload) {
 }
 
 export function* parcelSaveSaga() {
+  // set loading
+  yield put(showOrHideLoadingAction(true));
+
   // get token from state
   const { token } = yield select(getLoginFromState);
 
@@ -69,6 +79,9 @@ export function* parcelSaveSaga() {
     // back
     window.history.back();
   }
+
+  // remove loading
+  yield put(showOrHideLoadingAction(false));
 }
 
 export function* parcelSagas() {
