@@ -10,6 +10,7 @@ const initialSate = {
     culture: '',
     area: 0,
   },
+  error: {},
   errorMessage: '',
   list: [],
 };
@@ -18,6 +19,7 @@ export const parcelReducer = (state = initialSate, action) => {
   switch (action.type) {
     case parcelOnChangeActionType:
       state.parcel[action.payload.name] = action.payload.value;
+      state.error[action.payload.name] = action.payload.error;
       return { ...state };
     case onParcelErrorActionType:
       return {

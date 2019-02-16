@@ -48,7 +48,6 @@ class ProcessedParcelForm extends React.Component {
   }
 
   _validate() {
-    // validate
     const { processedParcelReducer } = this.props;
 
     let isFormValid = true;

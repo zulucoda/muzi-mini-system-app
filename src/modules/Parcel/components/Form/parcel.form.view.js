@@ -8,22 +8,64 @@ import {
   Typography,
 } from '@material-ui/core';
 import { styles } from './styles';
+import { isString } from '../../../../shared/utils/String/string.util';
+import { isNumber } from '../../../../shared/utils/Number/number.util';
 
 class ParcelForm extends React.Component {
   constructor(props) {
     super(props);
     this._onChange = this._onChange.bind(this);
+    this._validate = this._validate.bind(this);
   }
 
   _onChange(evt) {
     const name = evt.target.id;
     const value = evt.target.value;
-    this.props.parcelOnChangeAction({ name, value });
+    const error = null;
+    this.props.parcelOnChangeAction({ name, value, error });
+  }
+
+  _validate() {
+    const { parcelReducer } = this.props;
+
+    let isFormValid = true;
+
+    if (!isString(parcelReducer.parcel.name)) {
+      this.props.parcelOnChangeAction({
+        name: 'name',
+        value: parcelReducer.parcel.name,
+        error: 'Parcel name required',
+      });
+      isFormValid = false;
+    }
+
+    if (!isString(parcelReducer.parcel.culture)) {
+      this.props.parcelOnChangeAction({
+        name: 'culture',
+        value: parcelReducer.parcel.culture,
+        error: 'Parcel culture required',
+      });
+      isFormValid = false;
+    }
+
+    if (!isNumber(parcelReducer.parcel.area)) {
+      this.props.parcelOnChangeAction({
+        name: 'area',
+        value: parcelReducer.parcel.area,
+        error: 'Area must be a number greater than 0.',
+      });
+      isFormValid = false;
+    }
+
+    if (isFormValid) {
+      return this.props.parcelSaveAction();
+    }
+
+    return isFormValid;
   }
 
   render() {
     const { classes, parcelReducer } = this.props;
-    console.log('{parcelReducer.name}:', parcelReducer.parcel.name);
     return (
       <div>
         <h1>Parcel Form</h1>
@@ -41,6 +83,9 @@ class ParcelForm extends React.Component {
             value={parcelReducer.parcel.name}
             onChange={this._onChange}
             margin="normal"
+            helperText={parcelReducer.error.name}
+            error={isString(parcelReducer.error.name)}
+            require={true}
           />
           <TextField
             id="culture"
@@ -49,6 +94,8 @@ class ParcelForm extends React.Component {
             value={parcelReducer.parcel.culture}
             onChange={this._onChange}
             margin="normal"
+            helperText={parcelReducer.error.culture}
+            error={isString(parcelReducer.error.culture)}
           />
           <TextField
             id="area"
@@ -58,12 +105,14 @@ class ParcelForm extends React.Component {
             onChange={this._onChange}
             margin="normal"
             type="number"
+            helperText={parcelReducer.error.area}
+            error={isString(parcelReducer.error.area)}
           />
           <Button
             variant="contained"
             color="primary"
             className={classes.button}
-            onClick={() => this.props.parcelSaveAction()}
+            onClick={() => this._validate()}
           >
             Save
           </Button>
