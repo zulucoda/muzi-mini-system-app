@@ -8,22 +8,45 @@ import {
   Typography,
 } from '@material-ui/core';
 import { styles } from './styles';
+import { isString } from '../../../../shared/utils/String/string.util';
 
 class TractorForm extends React.Component {
   constructor(props) {
     super(props);
     this._onChange = this._onChange.bind(this);
+    this._validate = this._validate.bind(this);
   }
 
   _onChange(evt) {
     const name = evt.target.id;
     const value = evt.target.value;
-    this.props.tractorOnChangeAction({ name, value });
+    const error = null;
+    this.props.tractorOnChangeAction({ name, value, error });
+  }
+
+  _validate() {
+    const { tractorReducer } = this.props;
+
+    let isFormValid = true;
+
+    if (!isString(tractorReducer.tractor.name)) {
+      this.props.tractorOnChangeAction({
+        name: 'name',
+        value: tractorReducer.tractor.name,
+        error: 'Tractor name required',
+      });
+      isFormValid = false;
+    }
+
+    if (isFormValid) {
+      return this.props.tractorSaveAction();
+    }
+
+    return isFormValid;
   }
 
   render() {
     const { classes, tractorReducer } = this.props;
-    console.log('{tractorReducer.name}:', tractorReducer.tractor.name);
     return (
       <div>
         <h1>Tractor Form</h1>
@@ -41,12 +64,15 @@ class TractorForm extends React.Component {
             value={tractorReducer.tractor.name}
             onChange={this._onChange}
             margin="normal"
+            helperText={tractorReducer.error.name}
+            error={isString(tractorReducer.error.name)}
+            require={true}
           />
           <Button
             variant="contained"
             color="primary"
             className={classes.button}
-            onClick={() => this.props.tractorSaveAction()}
+            onClick={() => this._validate()}
           >
             Save
           </Button>
