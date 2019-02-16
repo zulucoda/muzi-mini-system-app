@@ -76,17 +76,24 @@ export function* processedParcelSaveSaga() {
     // update state
     yield call(processedParcelFetchRequestSaga);
 
+    // clear field saga
+    yield call(clearFieldsSaga, processedParcel);
+
     // back
     window.history.back();
+  }
+}
+
+export function* clearFieldsSaga(processedParcel) {
+  for (let key in processedParcel) {
+    yield put(processedParcelOnChangeAction({ name: key, value: '' }));
   }
 }
 
 export function* processedParcelSearchResetSaga() {
   const { processedParcel } = yield select(getProcessedParcelFromState);
 
-  for (let key in processedParcel) {
-    yield put(processedParcelOnChangeAction({ name: key, value: '' }));
-  }
+  yield call(clearFieldsSaga, processedParcel);
 
   yield call(processedParcelFetchRequestSaga);
 

@@ -11,7 +11,7 @@ import {
   InputLabel,
   Select,
 } from '@material-ui/core';
-import { DatePicker } from 'material-ui-pickers';
+import { InlineDatePicker } from 'material-ui-pickers';
 import { styles } from './styles';
 
 class ProcessedParcelForm extends React.Component {
@@ -19,7 +19,6 @@ class ProcessedParcelForm extends React.Component {
     super(props);
     this._onChange = this._onChange.bind(this);
     this._getMenuItemList = this._getMenuItemList.bind(this);
-    this._onDateChange = this._onDateChange.bind(this);
   }
 
   componentDidMount() {
@@ -31,12 +30,6 @@ class ProcessedParcelForm extends React.Component {
   _onChange(evt) {
     const name = evt.target.name;
     const value = evt.target.value;
-    this.props.processedParcelOnChangeAction({ name, value });
-  }
-
-  _onDateChange(date) {
-    const name = 'dateProcessed';
-    const value = date;
     this.props.processedParcelOnChangeAction({ name, value });
   }
 
@@ -97,9 +90,16 @@ class ProcessedParcelForm extends React.Component {
               {this._getMenuItemList(parcelReducer.list, 'parcel')}
             </Select>
           </FormControl>
-          <DatePicker
+          <InlineDatePicker
+            label="Select a date"
+            name="dateProcessed"
+            id="dateProcessed"
             value={processedParcelReducer.processedParcel.dateProcessed}
-            onChange={this._onDateChange}
+            onChange={date =>
+              this._onChange({
+                target: { name: 'dateProcessed', value: date },
+              })
+            }
           />
           <TextField
             id="area"
