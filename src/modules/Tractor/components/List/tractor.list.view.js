@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import { styles } from './styles';
 import { Link } from 'react-router-dom';
+import { TractorTableView } from '../Table/processed-parcel.table.view';
 
 class TractorList extends React.Component {
   componentDidMount() {
@@ -30,15 +31,7 @@ class TractorList extends React.Component {
               </Link>
             </h3>
           </Grid>
-          <Grid xs={12}>
-            <ul>
-              {tractorReducer.list.map((tractor, i) => (
-                <li key={i}>
-                  {tractor.id} {tractor.name}
-                </li>
-              ))}
-            </ul>
-          </Grid>
+          <TractorTableView list={tractorReducer.list} />
         </Grid>
       </div>
     );

@@ -50,7 +50,9 @@ class TractorForm extends React.Component {
     return (
       <div className={classes.root}>
         <Grid container xs={12}>
-          <h1>Tractor Form</h1>
+          <Grid xs={12}>
+            <h1>Tractor Form</h1>
+          </Grid>
 
           {tractorReducer.errorMessage ? (
             <Grid xs={12}>
@@ -65,31 +67,33 @@ class TractorForm extends React.Component {
             </Grid>
           ) : null}
 
-          <form className={classes.container} noValidate autoComplete="off">
-            <Grid xs={12}>
-              <TextField
-                id="name"
-                label="name"
-                className={classes.textField}
-                value={tractorReducer.tractor.name}
-                onChange={this._onChange}
-                margin="normal"
-                helperText={tractorReducer.error.name}
-                error={isString(tractorReducer.error.name)}
-                require={true}
-              />
-            </Grid>
-            <Grid xs={6}>
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                onClick={() => this._validate()}
-              >
-                Save
-              </Button>
-            </Grid>
-          </form>
+          <Grid container xs={12}>
+            <form className={classes.container} noValidate autoComplete="off">
+              <Grid xs={12}>
+                <TextField
+                  id="name"
+                  label="name"
+                  className={classes.textField}
+                  value={tractorReducer.tractor.name}
+                  onChange={this._onChange}
+                  margin="normal"
+                  helperText={tractorReducer.error.name}
+                  error={isString(tractorReducer.error.name)}
+                  require={true}
+                />
+              </Grid>
+              <Grid xs={6}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                  onClick={() => this._validate()}
+                >
+                  Save
+                </Button>
+              </Grid>
+            </form>
+          </Grid>
         </Grid>
       </div>
     );

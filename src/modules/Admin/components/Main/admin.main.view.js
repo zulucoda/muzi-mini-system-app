@@ -42,11 +42,6 @@ class Admin extends React.Component {
             <Grid container xs={4} sm={2}>
               <List component="nav" className={classes.navList}>
                 <ListItem>
-                  <Link to="/admin/">
-                    <i className="fa fa-home" /> Dashboard
-                  </Link>
-                </ListItem>
-                <ListItem>
                   <Link to="/admin/parcel/list">
                     <i className="fa fa-home" /> Parcel
                   </Link>

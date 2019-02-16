@@ -16,7 +16,7 @@ export class AppView extends Component {
             path="/"
             render={() =>
               loginReducer.token ? (
-                <Redirect to="/admin/dashboard" />
+                <Redirect to="/admin/processed-parcel/report" />
               ) : (
                 <Redirect to="/login" />
               )
