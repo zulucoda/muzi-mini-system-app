@@ -5,9 +5,16 @@ import {
   onProcessedParcelErrorAction,
   processedParcelFetchResponseAction,
   processedParcelSaveActionType,
+  processedParcelOnChangeAction,
+  processedParcelSearchResetActionType,
+  processedParcelSearchActionType,
 } from './processed-parcel.actions';
 import { getLoginFromState } from '../../../Login/containers/redux/login.selectors';
 import { getProcessedParcelFromState } from './processed-parcel.selectors';
+import { parcelFetchRequestAction } from '../../../Parcel/containers/redux/parcel.actions';
+import { tractorFetchRequestAction } from '../../../Tractor/containers/redux/tractor.actions';
+import { convertToQueryString } from '../utils/processed-parcel.util';
+import moment from 'moment';
 
 export function* fetchProcessedParcelApiSaga(token) {
   try {
@@ -32,7 +39,6 @@ export function* processedParcelFetchRequestSaga() {
 
   const results = yield call(fetchProcessedParcelApiSaga, token);
 
-  // save results
   yield put(processedParcelFetchResponseAction(results));
 }
 
@@ -75,10 +81,68 @@ export function* processedParcelSaveSaga() {
   }
 }
 
+export function* processedParcelSearchResetSaga() {
+  const { processedParcel } = yield select(getProcessedParcelFromState);
+
+  for (let key in processedParcel) {
+    yield put(processedParcelOnChangeAction({ name: key, value: '' }));
+  }
+
+  yield call(processedParcelFetchRequestSaga);
+
+  // fetch data for form usage
+  yield put(parcelFetchRequestAction());
+  yield put(tractorFetchRequestAction());
+}
+
+export function* searchProcessedParcelApiSaga(token, query) {
+  try {
+    // call processedParcel Api endpoint
+    return yield call([processedParcelService, 'search'], token, query);
+  } catch (e) {
+    // error
+    // log error
+    yield put(
+      onProcessedParcelErrorAction({
+        message:
+          'An error occurred while searching processedParcels. please make sure api is running.',
+      }),
+    );
+    return [];
+  }
+}
+
+export function* processedParcelSearchSaga() {
+  // get token from state
+  const { token } = yield select(getLoginFromState);
+
+  const { processedParcel } = yield select(getProcessedParcelFromState);
+
+  // fix dates
+  processedParcel.dateProcessed = processedParcel.dateProcessed
+    ? moment(processedParcel.dateProcessed).format('YYYY MM DD')
+    : null;
+  processedParcel.dateProcessedTo = processedParcel.dateProcessedTo
+    ? moment(processedParcel.dateProcessedTo).format('YYYY MM DD')
+    : null;
+
+  // convert to query string
+  const query = yield call(convertToQueryString, processedParcel);
+
+  const results = yield call(searchProcessedParcelApiSaga, token, query);
+
+  yield put(processedParcelFetchResponseAction(results));
+}
+
 export function* processedParcelSagas() {
   yield takeLatest(
     processedParcelFetchRequestActionType,
     processedParcelFetchRequestSaga,
   );
   yield takeLatest(processedParcelSaveActionType, processedParcelSaveSaga);
+  yield takeLatest(
+    processedParcelSearchResetActionType,
+    processedParcelSearchResetSaga,
+  );
+  yield takeLatest(processedParcelSearchActionType, processedParcelSearchSaga);
 }

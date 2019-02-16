@@ -46,6 +46,19 @@ class ProcessedParcelService {
       .then(this._parseJson)
       .catch(this._serverError);
   }
+
+  search(token, query) {
+    return fetch(`${API_URL}/processed-parcel/search?${query}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(this._checkStatus)
+      .then(this._parseJson)
+      .catch(this._serverError);
+  }
 }
 
 export const processedParcelService = new ProcessedParcelService();

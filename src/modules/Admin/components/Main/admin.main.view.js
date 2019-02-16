@@ -6,6 +6,7 @@ import { TractorListPageContainer } from '../../../Tractor/pages/List/tractor.li
 import { TractorFormPageContainer } from '../../../Tractor/pages/Form/tractor.form.page';
 import { ProcessedParcelFormPageContainer } from '../../../ProcessedParcel/pages/Form/processed-parcel.form.page';
 import { ProcessedParcelListPageContainer } from '../../../ProcessedParcel/pages/List/processed-parcel.list.page';
+import { ProcessedParcelReportPageContainer } from '../../../ProcessedParcel/pages/Report/processed-parcel.report.page';
 
 export class AdminView extends React.Component {
   render() {
@@ -60,7 +61,7 @@ export class AdminView extends React.Component {
             />
             <Route
               path="/admin/processed-parcel/report"
-              component={() => <div>I am a fake Processed Parcel Report</div>}
+              component={ProcessedParcelReportPageContainer}
             />
           </div>
         </div>

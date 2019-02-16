@@ -9,6 +9,8 @@ const initialSate = {
     parcelId: 1,
     tractorId: 1,
     dateProcessed: new Date(),
+    dateProcessedTo: new Date(),
+    culture: '',
     area: 0,
   },
   errorMessage: '',

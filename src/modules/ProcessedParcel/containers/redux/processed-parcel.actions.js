@@ -36,3 +36,16 @@ export const processedParcelFetchResponseActionType =
 const processedParcelSave = new CreateAction(reducerName, 'SAVE_PAYLOAD');
 export const processedParcelSaveAction = processedParcelSave.action;
 export const processedParcelSaveActionType = processedParcelSave.actionType;
+
+const processedParcelSearchReset = new CreateAction(
+  reducerName,
+  'SEARCH_RESET',
+);
+export const processedParcelSearchResetAction =
+  processedParcelSearchReset.action;
+export const processedParcelSearchResetActionType =
+  processedParcelSearchReset.actionType;
+
+const processedParcelSearch = new CreateAction(reducerName, 'SEARCH_PAYLOAD');
+export const processedParcelSearchAction = processedParcelSearch.action;
+export const processedParcelSearchActionType = processedParcelSearch.actionType;
