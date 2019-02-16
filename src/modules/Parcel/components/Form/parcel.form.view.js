@@ -67,56 +67,76 @@ class ParcelForm extends React.Component {
   render() {
     const { classes, parcelReducer } = this.props;
     return (
-      <div>
-        <h1>Parcel Form</h1>
-        <Paper className={classes.paper} elevation={1}>
-          <Typography variant="h5" component="h3">
-            Error Message
-          </Typography>
-          <Typography component="p">{parcelReducer.errorMessage}</Typography>
-        </Paper>
-        <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            id="name"
-            label="name"
-            className={classes.textField}
-            value={parcelReducer.parcel.name}
-            onChange={this._onChange}
-            margin="normal"
-            helperText={parcelReducer.error.name}
-            error={isString(parcelReducer.error.name)}
-            require={true}
-          />
-          <TextField
-            id="culture"
-            label="culture"
-            className={classes.textField}
-            value={parcelReducer.parcel.culture}
-            onChange={this._onChange}
-            margin="normal"
-            helperText={parcelReducer.error.culture}
-            error={isString(parcelReducer.error.culture)}
-          />
-          <TextField
-            id="area"
-            label="area"
-            className={classes.textField}
-            value={parcelReducer.parcel.area}
-            onChange={this._onChange}
-            margin="normal"
-            type="number"
-            helperText={parcelReducer.error.area}
-            error={isString(parcelReducer.error.area)}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            onClick={() => this._validate()}
-          >
-            Save
-          </Button>
-        </form>
+      <div className={classes.root}>
+        <Grid container xs={12} spacing={24}>
+          <h1>Parcel Form</h1>
+          <Grid xs={12}>
+            <Paper className={classes.paper} elevation={1}>
+              <Typography variant="h5" component="h3">
+                Error Message
+              </Typography>
+              <Typography component="p">
+                {parcelReducer.errorMessage}
+              </Typography>
+            </Paper>
+          </Grid>
+
+          <Grid xs={12}>
+            <form className={classes.container} noValidate autoComplete="off">
+              <Grid xs={12}>
+                <TextField
+                  id="name"
+                  label="name"
+                  className={classes.textField}
+                  value={parcelReducer.parcel.name}
+                  onChange={this._onChange}
+                  margin="normal"
+                  helperText={parcelReducer.error.name}
+                  error={isString(parcelReducer.error.name)}
+                  require={true}
+                  fullWidth={true}
+                />
+              </Grid>
+              <Grid xs={12}>
+                <TextField
+                  id="culture"
+                  label="culture"
+                  className={classes.textField}
+                  value={parcelReducer.parcel.culture}
+                  onChange={this._onChange}
+                  margin="normal"
+                  helperText={parcelReducer.error.culture}
+                  error={isString(parcelReducer.error.culture)}
+                  fullWidth={true}
+                />
+              </Grid>
+              <Grid xs={12}>
+                <TextField
+                  id="area"
+                  label="area"
+                  className={classes.textField}
+                  value={parcelReducer.parcel.area}
+                  onChange={this._onChange}
+                  margin="normal"
+                  type="number"
+                  helperText={parcelReducer.error.area}
+                  error={isString(parcelReducer.error.area)}
+                  fullWidth={true}
+                />
+              </Grid>
+              <Grid xs={12}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                  onClick={() => this._validate()}
+                >
+                  Save
+                </Button>
+              </Grid>
+            </form>
+          </Grid>
+        </Grid>
       </div>
     );
   }

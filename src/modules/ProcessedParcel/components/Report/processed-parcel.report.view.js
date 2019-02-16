@@ -49,106 +49,144 @@ class ProcessedParcelReport extends React.Component {
     } = this.props;
     return (
       <div className={classes.root}>
-        <h1>Processed Parcels Report</h1>
-        <div>
-          <h3>Report Filters</h3>
-          <form className={classes.container} noValidate autoComplete="off">
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="tractorId">Select a Tractor</InputLabel>
-              <Select
-                value={processedParcelReducer.processedParcel.tractorId}
-                onChange={this._onChange}
-                inputProps={{
-                  name: 'tractorId',
-                  id: 'tractorId',
-                }}
-              >
-                {this._getMenuItemList(tractorReducer.list, 'tractor')}
-              </Select>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="parcelId">Select a Parcel</InputLabel>
-              <Select
-                value={processedParcelReducer.processedParcel.parcelId}
-                onChange={this._onChange}
-                inputProps={{
-                  name: 'parcelId',
-                  id: 'parcelId',
-                }}
-              >
-                {this._getMenuItemList(parcelReducer.list, 'parcel')}
-              </Select>
-            </FormControl>
+        <Grid container xs={12}>
+          <Grid container xs={12}>
+            <h1>Processed Parcels Report</h1>
+          </Grid>
+          <Grid xs={12}>
+            <h3>Report Filters</h3>
+            <form className={classes.container} noValidate autoComplete="off">
+              <Grid container xs={12} spacing={24}>
+                <Grid item xs={6}>
+                  <FormControl className={classes.formControl} fullWidth={true}>
+                    <InputLabel htmlFor="tractorId">
+                      Select a Tractor
+                    </InputLabel>
+                    <Select
+                      value={processedParcelReducer.processedParcel.tractorId}
+                      onChange={this._onChange}
+                      inputProps={{
+                        name: 'tractorId',
+                        id: 'tractorId',
+                      }}
+                    >
+                      {this._getMenuItemList(tractorReducer.list, 'tractor')}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6}>
+                  <FormControl className={classes.formControl} fullWidth={true}>
+                    <InputLabel htmlFor="parcelId">Select a Parcel</InputLabel>
+                    <Select
+                      value={processedParcelReducer.processedParcel.parcelId}
+                      onChange={this._onChange}
+                      inputProps={{
+                        name: 'parcelId',
+                        id: 'parcelId',
+                      }}
+                    >
+                      {this._getMenuItemList(parcelReducer.list, 'parcel')}
+                    </Select>
+                  </FormControl>
+                </Grid>
+              </Grid>
 
-            <InlineDatePicker
-              label="Select a from date"
-              name="dateProcessed"
-              id="dateProcessed"
-              value={processedParcelReducer.processedParcel.dateProcessed}
-              onChange={date =>
-                this._onChange({
-                  target: { name: 'dateProcessed', value: date },
-                })
-              }
-            />
+              <Grid container xs={12} spacing={24}>
+                <Grid item xs={6}>
+                  <InlineDatePicker
+                    label="Select a from date"
+                    name="dateProcessed"
+                    id="dateProcessed"
+                    value={processedParcelReducer.processedParcel.dateProcessed}
+                    onChange={date =>
+                      this._onChange({
+                        target: { name: 'dateProcessed', value: date },
+                      })
+                    }
+                    fullWidth={true}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <InlineDatePicker
+                    label="Select a to date"
+                    name="dateProcessedTo"
+                    id="dateProcessedTo"
+                    value={
+                      processedParcelReducer.processedParcel.dateProcessedTo
+                    }
+                    onChange={date =>
+                      this._onChange({
+                        target: { name: 'dateProcessedTo', value: date },
+                      })
+                    }
+                    fullWidth={true}
+                  />
+                </Grid>
+              </Grid>
 
-            <InlineDatePicker
-              label="Select a to date"
-              name="dateProcessedTo"
-              id="dateProcessedTo"
-              value={processedParcelReducer.processedParcel.dateProcessedTo}
-              onChange={date =>
-                this._onChange({
-                  target: { name: 'dateProcessedTo', value: date },
-                })
-              }
-            />
+              <Grid container xs={12} spacing={24}>
+                <Grid item xs={6}>
+                  <TextField
+                    id="area"
+                    name="area"
+                    label="area"
+                    className={classes.textField}
+                    value={processedParcelReducer.processedParcel.area}
+                    onChange={this._onChange}
+                    margin="normal"
+                    type="number"
+                    fullWidth={true}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextField
+                    id="culture"
+                    name="culture"
+                    label="culture"
+                    className={classes.textField}
+                    value={processedParcelReducer.processedParcel.culture}
+                    onChange={this._onChange}
+                    margin="normal"
+                    fullWidth={true}
+                  />
+                </Grid>
+              </Grid>
 
-            <TextField
-              id="area"
-              name="area"
-              label="area"
-              className={classes.textField}
-              value={processedParcelReducer.processedParcel.area}
-              onChange={this._onChange}
-              margin="normal"
-              type="number"
-            />
-            <TextField
-              id="culture"
-              name="culture"
-              label="culture"
-              className={classes.textField}
-              value={processedParcelReducer.processedParcel.culture}
-              onChange={this._onChange}
-              margin="normal"
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              onClick={() => this.props.processedParcelSearchAction()}
-            >
-              Search
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              onClick={() => this.props.processedParcelSearchResetAction()}
-            >
-              Clear Search
-            </Button>
-          </form>
-        </div>
-        <ul>
-          {processedParcelReducer.list.map((processedParcel, i) => (
-            <li key={i}>
-              {processedParcel.parcelName} {processedParcel.tractorName}{' '}
-              {processedParcel.culture} {processedParcel.area}
-            </li>
-          ))}
-        </ul>
+              <Grid container xs={12} spacing={24}>
+                <Grid item xs={6}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                    onClick={() => this.props.processedParcelSearchAction()}
+                  >
+                    Search
+                  </Button>
+                </Grid>
+                <Grid item xs={6}>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.button}
+                    onClick={() =>
+                      this.props.processedParcelSearchResetAction()
+                    }
+                  >
+                    Clear Search
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+          </Grid>
+          <ul>
+            {processedParcelReducer.list.map((processedParcel, i) => (
+              <li key={i}>
+                {processedParcel.parcelName} {processedParcel.tractorName}{' '}
+                {processedParcel.culture} {processedParcel.area}
+              </li>
+            ))}
+          </ul>
+        </Grid>
       </div>
     );
   }

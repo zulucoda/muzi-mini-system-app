@@ -19,20 +19,28 @@ class ProcessedParcelList extends React.Component {
     const { classes, processedParcelReducer } = this.props;
     return (
       <div className={classes.root}>
-        <h1>ProcessedParcels</h1>
-        <h3>
-          <Link to="/admin/processed-parcel/add">
-            <i className="fa fa-home" /> Add New ProcessedParcel
-          </Link>
-        </h3>
-        <ul>
-          {processedParcelReducer.list.map((processedParcel, i) => (
-            <li key={i}>
-              {processedParcel.name} {processedParcel.culture}{' '}
-              {processedParcel.area}
-            </li>
-          ))}
-        </ul>
+        <Grid container xs={12}>
+          <Grid xs={12}>
+            <h1>ProcessedParcels</h1>
+          </Grid>
+          <Grid xs={12}>
+            <h3>
+              <Link to="/admin/processed-parcel/add">
+                <i className="fa fa-home" /> Add New ProcessedParcel
+              </Link>
+            </h3>
+          </Grid>
+          <Grid xs={12}>
+            <ul>
+              {processedParcelReducer.list.map((processedParcel, i) => (
+                <li key={i}>
+                  {processedParcel.name} {processedParcel.culture}{' '}
+                  {processedParcel.area}
+                </li>
+              ))}
+            </ul>
+          </Grid>
+        </Grid>
       </div>
     );
   }

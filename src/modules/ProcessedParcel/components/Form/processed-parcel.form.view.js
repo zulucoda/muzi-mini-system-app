@@ -125,99 +125,117 @@ class ProcessedParcelForm extends React.Component {
       parcelReducer,
       tractorReducer,
     } = this.props;
-    console.log(
-      '{processedParcelReducer.name}:',
-      processedParcelReducer.processedParcel.name,
-    );
     return (
-      <div>
-        <h1>ProcessedParcel Form</h1>
-        <Paper className={classes.paper} elevation={1}>
-          <Typography variant="h5" component="h3">
-            Error Message
-          </Typography>
-          <Typography component="p">
-            {processedParcelReducer.errorMessage}
-          </Typography>
-        </Paper>
-        <form className={classes.container} noValidate autoComplete="off">
-          <FormControl
-            className={classes.formControl}
-            require={true}
-            error={isString(processedParcelReducer.error.tractorId)}
-          >
-            <InputLabel htmlFor="tractorId">Select a Tractor</InputLabel>
-            <Select
-              value={processedParcelReducer.processedParcel.tractorId}
-              onChange={this._onChange}
-              inputProps={{
-                name: 'tractorId',
-                id: 'tractorId',
-              }}
-            >
-              {this._getMenuItemList(tractorReducer.list, 'tractor')}
-            </Select>
-            <FormHelperText>
-              {processedParcelReducer.error.tractorId}
-            </FormHelperText>
-          </FormControl>
-          <FormControl
-            className={classes.formControl}
-            require={true}
-            error={isString(processedParcelReducer.error.parcelId)}
-          >
-            <InputLabel htmlFor="parcelId">Select a Parcel</InputLabel>
-            <Select
-              value={processedParcelReducer.processedParcel.parcelId}
-              onChange={this._onChange}
-              inputProps={{
-                name: 'parcelId',
-                id: 'parcelId',
-              }}
-            >
-              {this._getMenuItemList(parcelReducer.list, 'parcel')}
-            </Select>
-            <FormHelperText>
-              {processedParcelReducer.error.parcelId}
-            </FormHelperText>
-          </FormControl>
-          <InlineDatePicker
-            label="Select a date"
-            name="dateProcessed"
-            id="dateProcessed"
-            emptyLabel="Select a date"
-            helperText={processedParcelReducer.error.dateProcessed}
-            error={isString(processedParcelReducer.error.dateProcessed)}
-            require={true}
-            value={processedParcelReducer.processedParcel.dateProcessed}
-            onChange={date =>
-              this._onChange({
-                target: { name: 'dateProcessed', value: date },
-              })
-            }
-          />
-          <TextField
-            id="area"
-            name="area"
-            label="area"
-            className={classes.textField}
-            value={processedParcelReducer.processedParcel.area}
-            onChange={this._onChange}
-            margin="normal"
-            type="number"
-            require={true}
-            helperText={processedParcelReducer.error.area}
-            error={isString(processedParcelReducer.error.area)}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            onClick={() => this._validate()}
-          >
-            Save
-          </Button>
-        </form>
+      <div className={classes.root}>
+        <Grid container xs={12}>
+          <Grid xs={12}>
+            <h1>Processed Parcel Form</h1>
+          </Grid>
+          <Grid xs={12}>
+            <Paper className={classes.paper} elevation={1}>
+              <Typography variant="h5" component="h3">
+                Error Message
+              </Typography>
+              <Typography component="p">
+                {processedParcelReducer.errorMessage}
+              </Typography>
+            </Paper>
+          </Grid>
+          <Grid xs={12}>
+            <form className={classes.container} noValidate autoComplete="off">
+              <Grid xs={12}>
+                <FormControl
+                  className={classes.formControl}
+                  require={true}
+                  error={isString(processedParcelReducer.error.tractorId)}
+                  fullWidth={true}
+                >
+                  <InputLabel htmlFor="tractorId">Select a Tractor</InputLabel>
+                  <Select
+                    value={processedParcelReducer.processedParcel.tractorId}
+                    onChange={this._onChange}
+                    inputProps={{
+                      name: 'tractorId',
+                      id: 'tractorId',
+                    }}
+                  >
+                    {this._getMenuItemList(tractorReducer.list, 'tractor')}
+                  </Select>
+                  <FormHelperText>
+                    {processedParcelReducer.error.tractorId}
+                  </FormHelperText>
+                </FormControl>
+              </Grid>
+              <Grid xs={12}>
+                <FormControl
+                  className={classes.formControl}
+                  require={true}
+                  error={isString(processedParcelReducer.error.parcelId)}
+                  fullWidth={true}
+                >
+                  <InputLabel htmlFor="parcelId">Select a Parcel</InputLabel>
+                  <Select
+                    value={processedParcelReducer.processedParcel.parcelId}
+                    onChange={this._onChange}
+                    inputProps={{
+                      name: 'parcelId',
+                      id: 'parcelId',
+                    }}
+                  >
+                    {this._getMenuItemList(parcelReducer.list, 'parcel')}
+                  </Select>
+                  <FormHelperText>
+                    {processedParcelReducer.error.parcelId}
+                  </FormHelperText>
+                </FormControl>
+              </Grid>
+              <Grid xs={12}>
+                <InlineDatePicker
+                  fullWidth={true}
+                  label="Select a date"
+                  name="dateProcessed"
+                  id="dateProcessed"
+                  emptyLabel="Select a date"
+                  helperText={processedParcelReducer.error.dateProcessed}
+                  error={isString(processedParcelReducer.error.dateProcessed)}
+                  require={true}
+                  value={processedParcelReducer.processedParcel.dateProcessed}
+                  onChange={date =>
+                    this._onChange({
+                      target: { name: 'dateProcessed', value: date },
+                    })
+                  }
+                />
+              </Grid>
+              <Grid xs={12}>
+                <TextField
+                  id="area"
+                  name="area"
+                  label="area"
+                  className={classes.textField}
+                  value={processedParcelReducer.processedParcel.area}
+                  onChange={this._onChange}
+                  margin="normal"
+                  type="number"
+                  require={true}
+                  helperText={processedParcelReducer.error.area}
+                  error={isString(processedParcelReducer.error.area)}
+                  fullWidth={true}
+                />
+              </Grid>
+              <Grid xs={12}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                  onClick={() => this._validate()}
+                >
+                  Save
+                </Button>
+              </Grid>
+            </form>
+          </Grid>
+        </Grid>
       </div>
     );
   }
