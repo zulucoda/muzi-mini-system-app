@@ -60,6 +60,6 @@ To run the back-end locally, you'll need `PostgreSQL` DB to be installed.
 
 ## Front-end Code Setup
 
-1. Clone repo: `yarn git clone https://github.com/zulucoda/muzi-mini-system-app`
+1. Clone repo: `$ git clone https://github.com/zulucoda/muzi-mini-system-app`
 2. Install dependencies: `$ yarn`
 3. Start: `$ yarn start`
