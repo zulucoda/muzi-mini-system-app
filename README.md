@@ -37,7 +37,6 @@ Other:
 * I used `sequelize` as ORM for `PostgreSQL` DB. Using `sequelize-cli` to generate modules, which acts as a repository pattern.
 
 Not considered for this challenge, however worth mentioning:
-* The `JWT` auth token is purely for this prototype, not recommended for production.
 * `Typescript` has no been used. However, it is recommended for production applications.
 
 ---------------------
