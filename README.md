@@ -41,8 +41,8 @@ Not considered for this challenge, however worth mentioning:
 
 ---------------------
 ## Setup Prerequisites
-* node version `v10.15.0`
-* yarn version `1.13.0`
+* Node version `v10.15.0`
+* Yarn version `1.13.0`
 * OS Ubuntu Linux 18.04 LTS
 
 
@@ -51,9 +51,9 @@ To run the back-end locally, you'll need `PostgreSQL` DB to be installed.
 
 1. Clone repo: `$ git clone https://github.com/zulucoda/muzi-mini-system-api`
 2. Install dependencies: `$ yarn`
-3. Create db using `sequelize-cli`: `$ node_modules/.bin/sequelize db:create`
-4. Run db migrations `sequelize-cli`: `$ node_modules/.bin/sequelize db:migrate`
-5. Seed the database with user `sequelize-cli`: `$ node_modules/.bin/sequelize db:seed:all`
+3. Create db using sequelize-cli: `$ node_modules/.bin/sequelize db:create`
+4. Run db migrations sequelize-cli: `$ node_modules/.bin/sequelize db:migrate`
+5. Seed the database with user sequelize-cli: `$ node_modules/.bin/sequelize db:seed:all`
 6. Start in dev: `$ yarn start:dev`
 
 
