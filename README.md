@@ -12,25 +12,25 @@ Live demo [https://muzi-mini-system.mfbproject.co.za/](https://muzi-mini-system.
 2. Back-End Nodejs - https://github.com/zulucoda/muzi-mini-system-api
 
 ## Architecture Simple Overview
-The Front-end SPA consumes as Back-end Restful API using JSON data.
+The Front-end SPA consumes the Back-end Restful API using JSON data.
 
 [![muzi-mini-system-simple-architecture](muzi-mini-system-simple-architecture.png)](https://muzi-mini-system.mfbproject.co.za/)
 
 ## Solution / Tech Stack
 ### Front-end
-The project was created using `create-react-app`. This project conforms to the [Air BnB style guide's](https://github.com/airbnb/javascript) naming and coding-style conventions, with preferential tweaks. [For more info please see my development tool-belt blog post](https://blog.mfbproject.co.za/2019/01/19/my-current-software-development-tool-belt/).
+The project was created using `create-react-app`. This project conforms to the [Air BnB style guide's](https://github.com/airbnb/javascript) naming and coding-style conventions, with special tweaks. [For more info, please see my development tool-belt blog post](https://blog.mfbproject.co.za/2019/01/19/my-current-software-development-tool-belt/).
 
 Other:
 * I use `redux` for state management. My personal opinion: Always use `redux` for state management. [Check out my blog article on this](https://blog.mfbproject.co.za/2018/03/11/so-you-want-to-know-what-you-should-test-when-using-react/)
-* I use `redux-saga` for `redux` middleware, it really works well. Please see my blog post on `redux-saga` for more info.
+* I use `redux-saga` for `redux` middleware, and it works well. Please see my blog post on `redux-saga` for more info.
 * `Prettier` - Automatically formats code after every commit.
 
 Not considered for this challenge, however worth mentioning:
 * Tests have not created. However, if this where a production app tests would be written for `reducers, sagas, containers & views`.
-* `Typescript` has no been used. However, it is is recommended for production applications.
+* `Typescript` has no been used. However, it is recommended for production applications.
 
 ### Back-end
-The node api was generated using express generator. The node projects uses a mvc and modular pattern.
+The node API was generated using the express generator. The node project makes use of the MVC and modular pattern.
 
 Other:
 * I use `expressjs` web framework to create a simple Restful API.
@@ -38,7 +38,7 @@ Other:
 
 Not considered for this challenge, however worth mentioning:
 * The `JWT` auth token is purely for this prototype, not recommended for production.
-* `Typescript` has no been used. However, it is is recommended for production applications.
+* `Typescript` has no been used. However, it is recommended for production applications.
 
 ---------------------
 ## Setup Prerequisites
@@ -48,7 +48,7 @@ Not considered for this challenge, however worth mentioning:
 
 
 ## Back-end Code Setup
-To run back-end locally you'll need `PostgreSQL` DB to be installed.
+To run the back-end locally, you'll need `PostgreSQL` DB to be installed.
 
 1. Clone repo: `$ git clone https://github.com/zulucoda/muzi-mini-system-api`
 2. Install dependencies: `$ yarn`
