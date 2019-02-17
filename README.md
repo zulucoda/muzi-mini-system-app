@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# zulucoda mini-system-app
 
-## Available Scripts
+This is my solution to the SellAnyCar Front-end challenge.
 
-In the project directory, you can run:
+[![muzi-mini-system](muzi-mini-system.gif)](https://muzi-mini-system.mfbproject.co.za/)
 
-### `npm start`
+## Demo
+Live demo [https://muzi-mini-system.mfbproject.co.za/](https://muzi-mini-system.mfbproject.co.za/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Projects
+1. Front-end React - https://github.com/zulucoda/muzi-mini-system-app
+2. Back-End Nodejs - https://github.com/zulucoda/muzi-mini-system-api
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Architecture Simple Overview
+The Front-end SPA consumes as Back-end Restful API using JSON data.
 
-### `npm test`
+[![muzi-mini-system-simple-architecture](muzi-mini-system-simple-architecture.gif)](https://muzi-mini-system.mfbproject.co.za/)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Solution / Tech Stack
+### Front-end
+The project was created using `create-react-app`. This project conforms to the [Air BnB style guide's](https://github.com/airbnb/javascript) naming and coding-style conventions, with preferential tweaks. [For more info please see my development tool-belt blog post](https://blog.mfbproject.co.za/2019/01/19/my-current-software-development-tool-belt/).
 
-### `npm run build`
+Other:
+* I use `redux` for state management. My personal opinion: Always use `redux` for state management. [Check out my blog article on this](https://blog.mfbproject.co.za/2018/03/11/so-you-want-to-know-what-you-should-test-when-using-react/)
+* I use `redux-saga` for `redux` middleware, it really works well. Please see my blog post on `redux-saga` for more info.
+* `Prettier` - Automatically formats code after every commit.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Not mentioning for this challenge, however worth mentioning:
+* Tests have not created. However, if this where a production app tests would be written for `reducers, sagas, containers & views`.
+* `Typescript` has no been used. However, it is is recommended for production applications.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Back-end
+The node api was generated using express generator. The node projects uses a mvc and modular pattern.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Other:
+* I use `expressjs` web framework to create a simple Restful API.
+* I used `sequelize` as ORM for `PostgreSQL` DB. Using `sequelize-cli` to generate modules, which as a repository pattern.
 
-### `npm run eject`
+Not mentioning for this challenge, however worth mentioning:
+* The `JWT` auth token is purely for this prototype, not recommended for production.
+* `Typescript` has no been used. However, it is is recommended for production applications.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---------------------
+## Setup Prerequisites
+* node version `v10.15.0`
+* yarn version `1.13.0`
+* OS Ubuntu Linux 18.04 LTS
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Back-end Code Setup
+To run back-end locally you'll need `PostgreSQL` DB to be installed.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone repo: `$ git clone https://github.com/zulucoda/muzi-mini-system-api`
+2. Install dependencies: `$ yarn`
+3. Create db using `sequelize-cli`: `$ node_modules/.bin/sequelize db:create`
+4. Run db migrations `sequelize-cli`: `$ node_modules/.bin/sequelize db:migrate`
+5. Seed the database with user `sequelize-cli`: `$ node_modules/.bin/sequelize db:seed:all`
+6. Start in dev: `$ yarn start:dev`
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Front-end Code Setup
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Clone repo: `yarn git clone https://github.com/zulucoda/muzi-mini-system-app`
+2. Install dependencies: `$ yarn`
+3. Start: `$ yarn start`
