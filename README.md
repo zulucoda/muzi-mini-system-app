@@ -22,7 +22,7 @@ The project was created using `create-react-app`. This project conforms to the [
 
 Other:
 * I use `redux` for state management. My personal opinion: Always use `redux` for state management. [Check out my blog article on this](https://blog.mfbproject.co.za/2018/03/11/so-you-want-to-know-what-you-should-test-when-using-react/)
-* I use `redux-saga` for `redux` middleware, and it works well. Please see my blog post on `redux-saga` for more info.
+* I use `redux-saga` for `redux` middleware, and it works well. [Please see my blog post on `redux-saga` for more info.](https://blog.mfbproject.co.za/2019/01/27/a-deep-dive-into-why-i-use-redux-saga/)
 * `Prettier` - Automatically formats code after every commit.
 
 Not considered for this challenge, however worth mentioning:
