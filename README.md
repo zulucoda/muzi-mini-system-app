@@ -25,7 +25,7 @@ Other:
 * I use `redux-saga` for `redux` middleware, it really works well. Please see my blog post on `redux-saga` for more info.
 * `Prettier` - Automatically formats code after every commit.
 
-Not mentioning for this challenge, however worth mentioning:
+Not considered for this challenge, however worth mentioning:
 * Tests have not created. However, if this where a production app tests would be written for `reducers, sagas, containers & views`.
 * `Typescript` has no been used. However, it is is recommended for production applications.
 
@@ -36,7 +36,7 @@ Other:
 * I use `expressjs` web framework to create a simple Restful API.
 * I used `sequelize` as ORM for `PostgreSQL` DB. Using `sequelize-cli` to generate modules, which as a repository pattern.
 
-Not mentioning for this challenge, however worth mentioning:
+Not considered for this challenge, however worth mentioning:
 * The `JWT` auth token is purely for this prototype, not recommended for production.
 * `Typescript` has no been used. However, it is is recommended for production applications.
 
