@@ -34,7 +34,7 @@ The node API was generated using the express generator. The node project makes u
 
 Other:
 * I use `expressjs` web framework to create a simple Restful API.
-* I used `sequelize` as ORM for `PostgreSQL` DB. Using `sequelize-cli` to generate modules, which as a repository pattern.
+* I used `sequelize` as ORM for `PostgreSQL` DB. Using `sequelize-cli` to generate modules, which acts as a repository pattern.
 
 Not considered for this challenge, however worth mentioning:
 * The `JWT` auth token is purely for this prototype, not recommended for production.
