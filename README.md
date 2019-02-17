@@ -14,7 +14,7 @@ Live demo [https://muzi-mini-system.mfbproject.co.za/](https://muzi-mini-system.
 ## Architecture Simple Overview
 The Front-end SPA consumes as Back-end Restful API using JSON data.
 
-[![muzi-mini-system-simple-architecture](muzi-mini-system-simple-architecture.gif)](https://muzi-mini-system.mfbproject.co.za/)
+[![muzi-mini-system-simple-architecture](muzi-mini-system-simple-architecture.png)](https://muzi-mini-system.mfbproject.co.za/)
 
 ## Solution / Tech Stack
 ### Front-end
