@@ -37,16 +37,7 @@ const fontHeader = {
   textTransform: 'uppercase',
 };
 
-const theme = {
-  ...rawTheme,
-  palette: {
-    ...rawTheme.palette,
-    background: {
-      ...rawTheme.palette.background,
-      default: rawTheme.palette.common.white,
-      placeholder: grey[200],
-    },
-  },
+let theme = createMuiTheme({
   typography: {
     ...rawTheme.typography,
     fontHeader,
@@ -93,6 +84,125 @@ const theme = {
     body2: {
       ...rawTheme.typography.body1,
       fontSize: 14,
+    },
+  },
+  palette: {
+    primary: {
+      light: '#0EA12F',
+      main: '#086C1A',
+      dark: '#36C542',
+    },
+    secondary: {
+      light: '#6CBE83',
+      main: '#EBF2EF',
+      dark: '#17281D',
+    },
+    error: {
+      main: red[500],
+      dark: red[700],
+    },
+    background: {
+      ...rawTheme.palette.background,
+      default: rawTheme.palette.common.white,
+      placeholder: grey[200],
+    },
+  },
+  shape: {
+    borderRadius: 8,
+  },
+});
+
+theme = {
+  ...theme,
+  overrides: {
+    MuiDrawer: {
+      paper: {
+        backgroundColor: '#18202c',
+      },
+    },
+    MuiButton: {
+      label: {
+        textTransform: 'initial',
+      },
+      contained: {
+        boxShadow: 'none',
+        '&:active': {
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiTabs: {
+      root: {
+        marginLeft: theme.spacing.unit,
+      },
+      indicator: {
+        height: 3,
+        borderTopLeftRadius: 3,
+        borderTopRightRadius: 3,
+        backgroundColor: theme.palette.common.white,
+      },
+    },
+    MuiTab: {
+      root: {
+        textTransform: 'initial',
+        margin: '0 16px',
+        minWidth: 0,
+        [theme.breakpoints.up('md')]: {
+          minWidth: 0,
+        },
+      },
+      labelContainer: {
+        padding: 0,
+        [theme.breakpoints.up('md')]: {
+          padding: 0,
+        },
+      },
+    },
+    MuiIconButton: {
+      root: {
+        padding: theme.spacing.unit,
+      },
+    },
+    MuiTooltip: {
+      tooltip: {
+        borderRadius: 4,
+      },
+    },
+    MuiDivider: {
+      root: {
+        backgroundColor: '#404854',
+      },
+    },
+    MuiListItemText: {
+      primary: {
+        fontWeight: theme.typography.fontWeightMedium,
+      },
+    },
+    MuiListItemIcon: {
+      root: {
+        color: 'inherit',
+        marginRight: 0,
+        '& svg': {
+          fontSize: 20,
+        },
+      },
+    },
+    MuiAvatar: {
+      root: {
+        width: 32,
+        height: 32,
+      },
+    },
+  },
+  props: {
+    MuiTab: {
+      disableRipple: true,
+    },
+  },
+  mixins: {
+    ...theme.mixins,
+    toolbar: {
+      minHeight: 48,
     },
   },
 };
