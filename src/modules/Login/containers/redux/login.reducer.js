@@ -11,8 +11,7 @@ const initialSate = {
     password: '',
   },
   errorMessage: '',
-  // REMOVE BEFORE DEPLOY
-  token: 'some fake token ',
+  token: null,
 
   // This should be in the App Reducer - for prototype I am leaving it in login Reducer
   isLoading: false,
