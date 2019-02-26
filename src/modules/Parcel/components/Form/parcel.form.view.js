@@ -70,7 +70,7 @@ class ParcelForm extends React.Component {
       <div className={classes.root}>
         <Grid container xs={12} spacing={24}>
           <Grid xs={12}>
-            <h1>Add Parcel</h1>
+            <h2>Add Parcel</h2>
           </Grid>
           {parcelReducer.errorMessage ? (
             <Grid xs={12}>

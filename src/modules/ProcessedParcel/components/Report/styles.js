@@ -18,7 +18,7 @@ export const styles = theme => ({
   },
   row: {
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.secondary.light,
+      backgroundColor: theme.palette.primary.main,
     },
   },
 });
