@@ -129,7 +129,7 @@ class ProcessedParcelForm extends React.Component {
       <div className={classes.root}>
         <Grid container xs={12}>
           <Grid xs={12}>
-            <h1>Processed Parcel</h1>
+            <h2>Processed Parcel</h2>
           </Grid>
           {processedParcelReducer.errorMessage ? (
             <Grid xs={12}>

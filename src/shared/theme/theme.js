@@ -3,22 +3,6 @@ import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 
 const rawTheme = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#0EA12F',
-      main: '#086C1A',
-      dark: '#36C542',
-    },
-    secondary: {
-      light: '#6CBE83',
-      main: '#EBF2EF',
-      dark: '#17281D',
-    },
-    error: {
-      main: red[500],
-      dark: red[700],
-    },
-  },
   typography: {
     fontFamily: "'Work Sans', sans-serif",
     fontSize: 14,
@@ -88,13 +72,13 @@ let theme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#0EA12F',
-      main: '#086C1A',
-      dark: '#36C542',
+      light: '#37944e',
+      main: '#1fbba6',
+      dark: '#2e8b83',
     },
     secondary: {
       light: '#6CBE83',
-      main: '#EBF2EF',
+      main: '#e85043',
       dark: '#17281D',
     },
     error: {
@@ -117,7 +101,7 @@ theme = {
   overrides: {
     MuiDrawer: {
       paper: {
-        backgroundColor: '#18202c',
+        backgroundColor: '#442342',
       },
     },
     MuiButton: {
@@ -170,7 +154,7 @@ theme = {
     },
     MuiDivider: {
       root: {
-        backgroundColor: '#404854',
+        backgroundColor: '#66495b',
       },
     },
     MuiListItemText: {

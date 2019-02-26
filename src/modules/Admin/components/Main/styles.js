@@ -23,13 +23,17 @@ export const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
+    background: '#eaeff1',
   },
   mainContent: {
     flex: 1,
-    padding: '48px 36px 0',
+    padding: '0 36px 0',
     background: '#eaeff1',
   },
   drawerPaper: {
     width: drawerWidth,
+  },
+  footer: {
+    marginTop: '24px',
   },
 });

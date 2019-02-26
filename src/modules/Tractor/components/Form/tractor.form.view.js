@@ -51,7 +51,7 @@ class TractorForm extends React.Component {
       <div className={classes.root}>
         <Grid container xs={12}>
           <Grid xs={12}>
-            <h1>Add Tractor</h1>
+            <h2>Add Tractor</h2>
           </Grid>
 
           {tractorReducer.errorMessage ? (
@@ -70,7 +70,7 @@ class TractorForm extends React.Component {
           <Grid xs={12}>
             <h3>Form</h3>
             <form className={classes.container} noValidate autoComplete="off">
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   id="name"
                   label="name"
@@ -81,9 +81,10 @@ class TractorForm extends React.Component {
                   helperText={tractorReducer.error.name}
                   error={isString(tractorReducer.error.name)}
                   require={true}
+                  fullWidth={true}
                 />
               </Grid>
-              <Grid xs={6}>
+              <Grid item xs={6}>
                 <Button
                   variant="contained"
                   color="primary"

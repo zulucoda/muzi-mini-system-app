@@ -28,7 +28,7 @@ export const styles = theme => ({
     },
   },
   itemActiveItem: {
-    color: '#4fc3f7',
+    color: '#1fbba6',
   },
   itemPrimary: {
     color: 'inherit',

@@ -1,14 +1,8 @@
 import React from 'react';
 import {
-  TextField,
   withStyles,
   Grid,
-  Button,
   Paper,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Select,
   Table,
   TableHead,
   TableRow,
@@ -16,8 +10,8 @@ import {
   TableBody,
   TableFooter,
 } from '@material-ui/core';
-import { InlineDatePicker } from 'material-ui-pickers';
 import { styles } from './styles';
+import moment from 'moment';
 
 class ProcessedParcelTable extends React.Component {
   static _subTotal(list) {
@@ -31,7 +25,7 @@ class ProcessedParcelTable extends React.Component {
 
     return (
       <Grid container xs={12}>
-        <Grid xs={12}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Table className={classes.table}>
               <TableHead>
@@ -49,7 +43,9 @@ class ProcessedParcelTable extends React.Component {
                   <TableRow key={row.id} className={classes.row}>
                     <TableCell>{row.parcelName}</TableCell>
                     <TableCell>{row.culture}</TableCell>
-                    <TableCell>{row.date}</TableCell>
+                    <TableCell>
+                      {moment(row.date).format('YYYY-MMM-DD')}
+                    </TableCell>
                     <TableCell>{row.tractorName}</TableCell>
                     <TableCell align="right">{row.area}</TableCell>
                   </TableRow>

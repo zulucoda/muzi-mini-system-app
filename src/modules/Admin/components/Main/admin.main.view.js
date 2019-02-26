@@ -88,7 +88,9 @@ class Admin extends React.Component {
               component={ProcessedParcelReportPageContainer}
             />
           </main>
-          <MfbView />
+          <div className={classes.footer}>
+            <MfbView />
+          </div>
         </div>
       </div>
     );

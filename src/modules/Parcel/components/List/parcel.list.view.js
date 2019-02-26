@@ -15,7 +15,7 @@ class ParcelList extends React.Component {
       <div className={classes.root}>
         <Grid container xs={12}>
           <Grid xs={12}>
-            <h1>Parcels</h1>
+            <h2>Parcels</h2>
           </Grid>
           <Grid xs={12}>
             <FabLink to="/admin/parcel/add" />
