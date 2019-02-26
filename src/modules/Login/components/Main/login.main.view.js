@@ -6,10 +6,13 @@ import {
   Button,
   Paper,
   Typography,
+  InputAdornment,
+  Icon,
 } from '@material-ui/core';
 import { styles } from './styles';
 import { withRoot } from '../../../../shared/components/RootTheme/root-theme';
 import { MfbView } from '../../../../shared/components/Mfb/mfb.view';
+import { Lock, AccountBox } from '@material-ui/icons';
 
 class Login extends React.Component {
   constructor(props) {
@@ -48,29 +51,49 @@ class Login extends React.Component {
               ) : null}
 
               <Grid xs={12}>
-                <h3>Login Form</h3>
+                <h3>Login</h3>
                 <form className={classes.form} noValidate autoComplete="off">
                   <Grid xs={12}>
                     <TextField
                       id="email"
                       label="email"
                       className={classes.textField}
+                      variant="outlined"
                       value={loginReducer.login.email}
                       onChange={this._onChange}
                       margin="normal"
                       fullWidth={true}
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <Icon aria-label="Email">
+                              <AccountBox />
+                            </Icon>
+                          </InputAdornment>
+                        ),
+                      }}
                     />
                   </Grid>
                   <Grid xs={12}>
                     <TextField
                       id="password"
                       label="password"
+                      variant="outlined"
                       className={classes.textField}
                       value={loginReducer.login.password}
                       onChange={this._onChange}
                       margin="normal"
                       type="password"
                       fullWidth={true}
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <Icon aria-label="Password">
+                              <Lock />
+                            </Icon>
+                          </InputAdornment>
+                        ),
+                      }}
                     />
                   </Grid>
                   <Grid xs={12}>
