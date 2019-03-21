@@ -9,6 +9,10 @@
     height: 16px !important;
 }
 
+.footer .mfb-project-01 a {
+    text-decoration: none;
+}
+
 .nav {
     list-style: none;
 }
